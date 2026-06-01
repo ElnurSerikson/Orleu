@@ -24,51 +24,45 @@ export default function Home() {
     <>
       {/* 1. HERO */}
       <section className="relative isolate overflow-hidden">
-        <AssetPlaceholder variant="aerial" className="absolute inset-0 rounded-none border-0" />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink-950/80 via-ink-950/55 to-ink-950" />
+        <img
+          src="/hero-bg.jpg"
+          alt="Аэросъёмка КФХ ӨRLEU: водоём и поля"
+          className="absolute inset-0 h-full w-full object-cover"
+          loading="eager"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink-950/55 via-ink-950/40 to-ink-950/85" />
+        <div className="absolute inset-0 bg-leaf-radial mix-blend-soft-light" />
         <div className="container-x relative grid min-h-[88vh] place-items-center py-24">
           <div className="max-w-4xl text-center">
-            <span className="chip">КФХ ӨRLEU · Жамбылская область</span>
-            <h1 className="title-xl mt-6 text-balance">
+            <span className="chip backdrop-blur">КФХ ӨRLEU · Жамбылская область</span>
+            <h1 className="title-xl mt-6 text-balance drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)]">
               Ваш путь к процветанию и{' '}
               <span className="bg-gradient-to-r from-moss-400 to-moss-500 bg-clip-text text-transparent">
                 незабываемому отдыху
               </span>
             </h1>
-            <p className="lead mx-auto mt-6 max-w-2xl">
+            <p className="lead mx-auto mt-6 max-w-2xl text-sand-50/85 drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]">
               Откройте потенциал щедрой земли Казахстана для прибыльного бизнеса
               и насладитесь её первозданной красотой. 230 гектар возможностей в
               30 км от Тараза.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-              <button className="btn-primary">
+              <a
+                href="https://www.youtube.com/watch?v=SW4hlTy8Hwg"
+                target="_blank"
+                rel="noreferrer"
+                className="btn-primary"
+              >
                 <IconPlay className="h-4 w-4" /> Смотреть видео-обзор КХ
-              </button>
-              <Link to="/guests" className="btn-ghost">
+              </a>
+              <Link to="/guests" className="btn-ghost backdrop-blur">
                 Я хочу на отдых <IconArrowRight className="h-4 w-4" />
               </Link>
-            </div>
-
-            <div className="mt-16 grid gap-3 sm:grid-cols-3">
-              {[
-                { label: 'Гектаров земель', value: '230+' },
-                { label: 'Водоем (ОТРХ)', value: '25 га' },
-                { label: 'До Тараза', value: '30 км' },
-              ].map((it) => (
-                <div key={it.label} className="glass px-5 py-4 text-center">
-                  <div className="font-display text-2xl font-extrabold text-moss-400">
-                    {it.value}
-                  </div>
-                  <div className="text-xs uppercase tracking-[0.2em] text-sand-100/55">
-                    {it.label}
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </div>
 
-        <div className="pointer-events-none absolute bottom-8 left-1/2 -translate-x-1/2 text-xs uppercase tracking-[0.4em] text-sand-100/50">
+        <div className="pointer-events-none absolute bottom-8 left-1/2 -translate-x-1/2 text-xs uppercase tracking-[0.4em] text-sand-100/60">
           <span className="animate-floatSlow inline-block">↓ Листайте вниз</span>
         </div>
       </section>
