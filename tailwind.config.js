@@ -35,6 +35,8 @@ export default {
       backgroundImage: {
         'leaf-radial':
           'radial-gradient(circle at 20% 10%, rgba(34,197,94,0.16), transparent 55%), radial-gradient(circle at 85% 90%, rgba(22,163,74,0.18), transparent 50%)',
+        'leaves-overlay':
+          'linear-gradient(180deg, rgba(7,13,11,0.85), rgba(7,13,11,0.7))',
       },
       keyframes: {
         pulseGlow: {

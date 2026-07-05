@@ -157,3 +157,29 @@ export const IconPlus = ({ className = '' }: IconProps) => (
     <path d="M12 5v14M5 12h14" />
   </svg>
 );
+
+export const IconUsers = ({ className = '' }: IconProps) => (
+  <svg viewBox="0 0 24 24" className={`${base} ${className}`} fill="none" stroke="currentColor" strokeWidth="1.6">
+    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+    <circle cx="9" cy="7" r="4" />
+    <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13A4 4 0 0 1 16 11" />
+  </svg>
+);
+
+export const IconYoutube = ({ className = '' }: IconProps) => (
+  <svg viewBox="0 0 24 24" className={`${base} ${className}`} fill="currentColor">
+    <path d="M23 7.5a3 3 0 0 0-2-2.1C19.1 5 12 5 12 5s-7.1 0-9 .4a3 3 0 0 0-2 2.1A31 31 0 0 0 .7 12 31 31 0 0 0 1 16.5a3 3 0 0 0 2 2.1c1.9.4 9 .4 9 .4s7.1 0 9-.4a3 3 0 0 0 2-2.1 31 31 0 0 0 .3-4.5 31 31 0 0 0-.3-4.5ZM9.7 15.5v-7l6 3.5-6 3.5Z" />
+  </svg>
+);
+
+export const IconFire = ({ className = '' }: IconProps) => (
+  <svg viewBox="0 0 24 24" className={`${base} ${className}`} fill="none" stroke="currentColor" strokeWidth="1.6">
+    <path d="M12 2c1 4-2 6-2 9a4 4 0 0 0 8 0c0-2-1-3-2-4 2 1 4 3 4 7a6 6 0 0 1-12 0c0-5 4-8 4-12Z" />
+  </svg>
+);
+
+export const IconRecycle = ({ className = '' }: IconProps) => (
+  <svg viewBox="0 0 24 24" className={`${base} ${className}`} fill="none" stroke="currentColor" strokeWidth="1.6">
+    <path d="M7 19h10l-2 2M7 19l-2-2 3-5M17 19l2-2-3-5M9 7l3-5 3 5M9 7H5l2 4M15 7h4l-2 4" />
+  </svg>
+);

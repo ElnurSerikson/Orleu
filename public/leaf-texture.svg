@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+  <defs>
+    <symbol id="leaf-a" viewBox="-20 -30 40 60">
+      <path d="M0 -28 C 14 -20 18 -4 14 12 C 10 22 4 28 0 28 C -4 28 -10 22 -14 12 C -18 -4 -14 -20 0 -28 Z" fill="currentColor"/>
+      <path d="M0 -26 L 0 26" stroke="rgba(0,0,0,0.25)" stroke-width="0.6" fill="none"/>
+      <path d="M0 -10 L 8 -4 M0 -10 L -8 -4 M0 4 L 10 12 M0 4 L -10 12" stroke="rgba(0,0,0,0.2)" stroke-width="0.5" fill="none"/>
+    </symbol>
+    <symbol id="leaf-b" viewBox="-15 -25 30 50">
+      <path d="M0 -22 C 10 -16 13 -2 9 10 C 6 18 2 22 0 22 C -2 22 -6 18 -9 10 C -13 -2 -10 -16 0 -22 Z" fill="currentColor"/>
+      <path d="M0 -20 L 0 20" stroke="rgba(0,0,0,0.25)" stroke-width="0.5" fill="none"/>
+    </symbol>
+    <symbol id="leaf-c" viewBox="-18 -18 36 36">
+      <path d="M-16 0 C -10 -14 10 -14 16 0 C 10 14 -10 14 -16 0 Z" fill="currentColor"/>
+      <path d="M-14 0 L 14 0" stroke="rgba(0,0,0,0.25)" stroke-width="0.5" fill="none"/>
+      <path d="M-8 -6 L 8 -6 M-8 6 L 8 6" stroke="rgba(0,0,0,0.2)" stroke-width="0.4" fill="none"/>
+    </symbol>
+    <symbol id="fern" viewBox="-25 -25 50 50">
+      <path d="M0 -22 L 0 22" stroke="currentColor" stroke-width="0.8" fill="none"/>
+      <g stroke="currentColor" stroke-width="0.6" fill="none">
+        <path d="M0 -18 L -10 -22 M0 -18 L 10 -22"/>
+        <path d="M0 -10 L -14 -12 M0 -10 L 14 -12"/>
+        <path d="M0 -2 L -16 0 M0 -2 L 16 0"/>
+        <path d="M0 6 L -14 8 M0 6 L 14 8"/>
+        <path d="M0 14 L -10 18 M0 14 L 10 18"/>
+      </g>
+    </symbol>
+  </defs>
+
+  <g opacity="0.55">
+    <g color="#1f5230" transform="translate(60 80) rotate(-25) scale(1.1)"><use href="#leaf-a" width="40" height="60" x="-20" y="-30"/></g>
+    <g color="#16a34a" transform="translate(180 140) rotate(40)"><use href="#leaf-b" width="30" height="50" x="-15" y="-25"/></g>
+    <g color="#15803d" transform="translate(320 60) rotate(-10) scale(0.9)"><use href="#leaf-c" width="36" height="36" x="-18" y="-18"/></g>
+    <g color="#22c55e" transform="translate(460 120) rotate(60) scale(0.85)"><use href="#fern" width="50" height="50" x="-25" y="-25"/></g>
+    <g color="#1f5230" transform="translate(540 240) rotate(15) scale(1.05)"><use href="#leaf-a" width="40" height="60" x="-20" y="-30"/></g>
+    <g color="#16a34a" transform="translate(120 280) rotate(-50)"><use href="#leaf-c" width="36" height="36" x="-18" y="-18"/></g>
+    <g color="#15803d" transform="translate(280 320) rotate(25) scale(0.95)"><use href="#leaf-b" width="30" height="50" x="-15" y="-25"/></g>
+    <g color="#22c55e" transform="translate(420 380) rotate(-30) scale(0.9)"><use href="#fern" width="50" height="50" x="-25" y="-25"/></g>
+    <g color="#1f5230" transform="translate(60 420) rotate(70)"><use href="#leaf-a" width="40" height="60" x="-20" y="-30"/></g>
+    <g color="#16a34a" transform="translate(220 480) rotate(-15) scale(0.85)"><use href="#leaf-c" width="36" height="36" x="-18" y="-18"/></g>
+    <g color="#15803d" transform="translate(380 520) rotate(45)"><use href="#leaf-b" width="30" height="50" x="-15" y="-25"/></g>
+    <g color="#22c55e" transform="translate(520 540) rotate(-20) scale(0.95)"><use href="#leaf-a" width="40" height="60" x="-20" y="-30"/></g>
+  </g>
+
+  <g opacity="0.35">
+    <g color="#0e3a1f" transform="translate(240 200) rotate(55) scale(0.7)"><use href="#leaf-a" width="40" height="60" x="-20" y="-30"/></g>
+    <g color="#0e3a1f" transform="translate(400 240) rotate(-35) scale(0.65)"><use href="#leaf-c" width="36" height="36" x="-18" y="-18"/></g>
+    <g color="#0e3a1f" transform="translate(160 380) rotate(20) scale(0.7)"><use href="#fern" width="50" height="50" x="-25" y="-25"/></g>
+    <g color="#0e3a1f" transform="translate(500 440) rotate(80) scale(0.6)"><use href="#leaf-b" width="30" height="50" x="-15" y="-25"/></g>
+  </g>
+</svg>

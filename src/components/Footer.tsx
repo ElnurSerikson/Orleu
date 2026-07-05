@@ -51,7 +51,7 @@ export default function Footer() {
 
       <div className="border-t border-white/5">
         <div className="container-x flex flex-col items-center justify-between gap-2 py-6 text-xs text-sand-100/40 sm:flex-row">
-          <div>© {new Date().getFullYear()} КФХ ӨRLEU. Все права защищены.</div>
+          <div>© 2026 КФХ «ӨРЛЕУ». Все права защищены.</div>
           <div>Земли в долгосрочной аренде · Договоры о совместной деятельности</div>
         </div>
       </div>

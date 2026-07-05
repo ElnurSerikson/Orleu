@@ -1,10 +1,11 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SectionHeader from '../components/SectionHeader';
 import StatCard from '../components/StatCard';
-import FeatureCard from '../components/FeatureCard';
 import Carousel from '../components/Carousel';
-import ContactStrip from '../components/ContactStrip';
 import AssetPlaceholder from '../components/AssetPlaceholder';
+import ContactBlock from '../components/ContactBlock';
+import VideoLightbox from '../components/VideoLightbox';
 import {
   IconArrowRight,
   IconCalendar,
@@ -14,12 +15,24 @@ import {
   IconPlay,
   IconRoute,
   IconSeed,
-  IconSparkle,
-  IconTent,
+  IconUsers,
   IconWaves,
+  IconTent,
+  IconSparkle,
 } from '../components/Icon';
 
+const WA_GUESTS =
+  'https://wa.me/77788868808?text=' +
+  encodeURIComponent('Здравствуйте! Хочу узнать про отдых и рыбалку в ORLEU.');
+const WA_PARTNERS =
+  'https://wa.me/77788868808?text=' +
+  encodeURIComponent(
+    'Здравствуйте! Интересует сотрудничество и бизнес-возможности на территории ORLEU.'
+  );
+
 export default function Home() {
+  const [videoOpen, setVideoOpen] = useState(false);
+
   return (
     <>
       {/* 1. HERO */}
@@ -34,30 +47,31 @@ export default function Home() {
         <div className="absolute inset-0 bg-leaf-radial mix-blend-soft-light" />
         <div className="container-x relative grid min-h-[88vh] place-items-center py-24">
           <div className="max-w-4xl text-center">
-            <span className="chip backdrop-blur">КФХ ӨRLEU · Жамбылская область</span>
+            <span className="chip backdrop-blur">КФХ ORLEU · Жамбылская область</span>
             <h1 className="title-xl mt-6 text-balance drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)]">
-              Ваш путь к процветанию и{' '}
+              КФХ ORLEU: Территория отдыха и{' '}
               <span className="bg-gradient-to-r from-moss-400 to-moss-500 bg-clip-text text-transparent">
-                незабываемому отдыху
+                деловых возможностей
               </span>
             </h1>
+            <div className="mt-6 font-display text-lg font-semibold uppercase tracking-[0.32em] text-moss-400">
+              Соединяясь с природой
+            </div>
             <p className="lead mx-auto mt-6 max-w-2xl text-sand-50/85 drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]">
-              Откройте потенциал щедрой земли Казахстана для прибыльного бизнеса
-              и насладитесь её первозданной красотой. 230 гектар возможностей в
-              30 км от Тараза.
+              Откройте потенциал щедрых земель и водоёмов Южного Казахстана для
+              качественного отдыха и успешного бизнеса.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-              <a
-                href="https://www.youtube.com/watch?v=SW4hlTy8Hwg"
-                target="_blank"
-                rel="noreferrer"
-                className="btn-primary"
-              >
-                <IconPlay className="h-4 w-4" /> Смотреть видео-обзор КХ
-              </a>
-              <Link to="/guests" className="btn-ghost backdrop-blur">
-                Я хочу на отдых <IconArrowRight className="h-4 w-4" />
+              <Link to="/guests" className="btn-primary">
+                Хочу на отдых <IconArrowRight className="h-4 w-4" />
               </Link>
+              <button
+                type="button"
+                onClick={() => setVideoOpen(true)}
+                className="btn-ghost backdrop-blur"
+              >
+                <IconPlay className="h-4 w-4" /> Посмотреть видео-обзор
+              </button>
             </div>
           </div>
         </div>
@@ -67,41 +81,98 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. STATS */}
+      {/* 2. STATS — КФХ ORLEU в цифрах */}
       <section className="section">
         <div className="container-x">
           <SectionHeader
             eyebrow="Масштаб, который впечатляет"
-            title="Наши активы в цифрах"
-            subtitle="Познакомьтесь с потенциалом КХ ӨRLEU в фактах."
+            title="КФХ ORLEU в цифрах"
+            subtitle="Узнайте, почему ORLEU — это выгодное место для вашего отдыха и бизнеса."
           />
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
-            <StatCard icon={<IconLeaf />} value="250+" label="гектаров плодородных земель" hint="01" />
-            <StatCard icon={<IconMap />} value="9" label="уникальных участков" hint="02" />
-            <StatCard icon={<IconFish />} value="25 га" label="собственного водоема ОТРХ" hint="03" />
-            <StatCard icon={<IconCalendar />} value="49" label="лет долгосрочной аренды" hint="04" />
-            <StatCard icon={<IconRoute />} value="30 км" label="от города Тараз" hint="05" />
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <StatCard
+              icon={<IconLeaf />}
+              value="230+ га"
+              label="Плодородные земли для эффективного агробизнеса и развития инфраструктуры"
+              hint="01"
+            />
+            <StatCard
+              icon={<IconWaves />}
+              value="5+ км"
+              label="Береговой линии — простор для приватного отдыха и коммерческих зон на воде"
+              hint="02"
+            />
+            <StatCard
+              icon={<IconFish />}
+              value="25+ га"
+              label="Водоёма — зарыбленное проточное хозяйство со статусом ОТРХ"
+              hint="03"
+            />
+            <StatCard
+              icon={<IconRoute />}
+              value="25 км"
+              label="От Тараза — близость, обеспечивающая лёгкую логистику и высокую посещаемость"
+              hint="04"
+            />
+            <StatCard
+              icon={<IconCalendar />}
+              value="16 лет"
+              label="Опыта — стабильная экосистема и проверенная временем бизнес-модель"
+              hint="05"
+            />
+            <StatCard
+              icon={<IconUsers />}
+              value="1000+"
+              label="Гостей — вместимость для масштабных потоков без потери качества"
+              hint="06"
+            />
           </div>
         </div>
       </section>
 
-      {/* 3. AUDIENCE SPLIT */}
+      {/* 3. AUDIENCE SPLIT — слева Гости, справа Партнёры */}
       <section className="section">
         <div className="container-x">
           <SectionHeader
-            eyebrow="Ваш путь в ӨRLEU"
-            title="Что ищете на ӨRLEU?"
-            subtitle="Выберите свой путь: построить успешный бизнес или насладиться незабываемым отдыхом."
+            eyebrow="Ваш путь в ORLEU"
+            title="Что ищете на ORLEU?"
+            subtitle="Насладиться незабываемым отдыхом или построить успешный бизнес."
           />
 
           <div className="mt-14 grid gap-6 lg:grid-cols-2">
-            <Link to="/partnership" className="group relative overflow-hidden rounded-3xl border border-white/10 bg-ink-850/70 transition hover:border-moss-500/40">
+            {/* Слева — для гостей */}
+            <Link
+              to="/guests"
+              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-ink-850/70 transition hover:border-moss-500/40"
+            >
+              <AssetPlaceholder variant="water" className="aspect-[16/10] rounded-none border-0" />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/40 to-transparent" />
+              <div className="absolute inset-x-6 bottom-6 sm:inset-x-8 sm:bottom-8">
+                <span className="chip">Для гостей и отдыхающих</span>
+                <h3 className="mt-4 text-2xl font-bold sm:text-3xl">
+                  Незабываемый отдых и трофейная рыбалка
+                </h3>
+                <p className="mt-2 max-w-md text-sm text-sand-100/70">
+                  Чистый воздух, богатый водоем и идеальные условия для
+                  семейного отдыха и настоящей рыбалки.
+                </p>
+                <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-moss-400">
+                  Хочу на отдых <IconArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                </div>
+              </div>
+            </Link>
+
+            {/* Справа — для партнёров */}
+            <Link
+              to="/partnership"
+              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-ink-850/70 transition hover:border-moss-500/40"
+            >
               <AssetPlaceholder variant="field" className="aspect-[16/10] rounded-none border-0" />
               <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/40 to-transparent" />
               <div className="absolute inset-x-6 bottom-6 sm:inset-x-8 sm:bottom-8">
                 <span className="chip">Для партнеров и инвесторов</span>
                 <h3 className="mt-4 text-2xl font-bold sm:text-3xl">
-                  Для амбициозного бизнеса и инвестиций
+                  Партнёрство и бизнес-проекты
                 </h3>
                 <p className="mt-2 max-w-md text-sm text-sand-100/70">
                   Перспективная платформа для сельского хозяйства, рыбоводства и
@@ -109,24 +180,6 @@ export default function Home() {
                 </p>
                 <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-moss-400">
                   Стать партнером <IconArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-                </div>
-              </div>
-            </Link>
-
-            <Link to="/guests" className="group relative overflow-hidden rounded-3xl border border-white/10 bg-ink-850/70 transition hover:border-moss-500/40">
-              <AssetPlaceholder variant="water" className="aspect-[16/10] rounded-none border-0" />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/40 to-transparent" />
-              <div className="absolute inset-x-6 bottom-6 sm:inset-x-8 sm:bottom-8">
-                <span className="chip">Для гостей и отдыхающих</span>
-                <h3 className="mt-4 text-2xl font-bold sm:text-3xl">
-                  Для незабываемого отдыха и трофейной рыбалки
-                </h3>
-                <p className="mt-2 max-w-md text-sm text-sand-100/70">
-                  Чистый воздух, богатый водоем и идеальные условия для
-                  семейного отдыха и настоящей рыбалки.
-                </p>
-                <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-moss-400">
-                  Приехать на отдых <IconArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                 </div>
               </div>
             </Link>
@@ -138,88 +191,92 @@ export default function Home() {
       <section className="section relative">
         <div className="container-x">
           <SectionHeader
-            eyebrow="Ключевые возможности"
-            title="Наши ведущие направления и перспективы"
-            subtitle="Исследуйте ключевые сферы для вашего успешного развития на землях ӨRLEU."
+            eyebrow="Ключевые возможности ORLEU"
+            title="Больше, чем просто отдых: направления развития ORLEU"
+            subtitle="Мы создаем пространство, где природа встречается с комфортом и новыми возможностями."
           />
 
           <div className="mt-14 grid gap-5 lg:grid-cols-3">
-            <Link to="/partnership" className="group lg:col-span-2 relative overflow-hidden rounded-3xl border border-moss-500/30 bg-gradient-to-br from-ink-800 to-ink-900 p-8 transition hover:-translate-y-1 hover:border-moss-500/60">
-              <div className="absolute -right-12 -top-12 h-64 w-64 rounded-full bg-moss-500/15 blur-3xl" />
-              <span className="chip">Флагман</span>
-              <h3 className="title-md relative mt-6 max-w-sm">
-                Готовая бизнес-модель: Проект Глэмпинга
-              </h3>
-              <p className="relative mt-3 max-w-md text-sm text-sand-100/70">
-                Наш проработанный концепт глэмпинга — это шанс для быстрого
-                старта в экотуризме с маркетинговыми исследованиями и эскизным
-                проектом.
+            {/* Карточка 1 — Рыбалка и Рекреация */}
+            <div className="card group relative flex flex-col overflow-hidden">
+              <div className="absolute -right-10 -top-10 h-44 w-44 rounded-full bg-moss-500/10 blur-3xl" />
+              <AssetPlaceholder variant="fish" className="aspect-[4/3] -mx-6 -mt-6 mb-6 rounded-none border-0 sm:-mx-8 sm:-mt-8" />
+              <span className="chip self-start">Рыбалка и Рекреация</span>
+              <h3 className="title-md mt-4">Трофейная рыбалка и кемпинг</h3>
+              <p className="mt-3 text-sm leading-relaxed text-sand-100/70">
+                Наш 25-гектарный водоем — рай для рыболовов и любителей отдыха с
+                палатками. Тишина, комфорт и восстановление.
               </p>
-              <div className="relative mt-8 inline-flex items-center gap-2 text-sm font-semibold text-moss-400">
-                Узнать подробнее <IconArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-              </div>
-              <div className="relative mt-10 grid grid-cols-3 gap-3">
-                <AssetPlaceholder variant="tent" className="aspect-[4/3]" />
-                <AssetPlaceholder variant="sunset" className="aspect-[4/3]" />
-                <AssetPlaceholder variant="forest" className="aspect-[4/3]" />
-              </div>
-            </Link>
+              <Link
+                to="/guests"
+                className="btn-primary mt-6 self-start"
+              >
+                Забронировать отдых <IconArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
 
-            <div className="grid gap-5">
-              <FeatureCard
-                icon={<IconSeed />}
-                title="Агропотенциал"
-                description="Богарные и поливные земли, пастбища, кормопроизводство и животноводство."
-                number="02"
-              />
-              <FeatureCard
-                icon={<IconFish />}
-                title="Рыбное хозяйство"
-                description="25-гектарный водоем со статусом ОТРХ для товарного рыбоводства и рекреации."
-                number="03"
-              />
+            {/* Карточка 2 — Мероприятия */}
+            <div className="card group relative flex flex-col overflow-hidden">
+              <div className="absolute -right-10 -top-10 h-44 w-44 rounded-full bg-amber-400/10 blur-3xl" />
+              <AssetPlaceholder variant="tent" className="aspect-[4/3] -mx-6 -mt-6 mb-6 rounded-none border-0 sm:-mx-8 sm:-mt-8" />
+              <span className="chip self-start">Мероприятия</span>
+              <h3 className="title-md mt-4">Пространство для ваших событий</h3>
+              <p className="mt-3 text-sm leading-relaxed text-sand-100/70">
+                Просторная территория для проведения корпоративов, тимбилдингов,
+                семейных праздников и фестивалей на свежем воздухе под открытым небом.
+              </p>
+              <a href={WA_GUESTS} target="_blank" rel="noreferrer" className="btn-primary mt-6 self-start">
+                Обсудить событие <IconArrowRight className="h-4 w-4" />
+              </a>
+            </div>
+
+            {/* Карточка 3 — Деловые возможности */}
+            <div className="card group relative flex flex-col overflow-hidden">
+              <div className="absolute -right-10 -top-10 h-44 w-44 rounded-full bg-sky-400/10 blur-3xl" />
+              <AssetPlaceholder variant="aerial" className="aspect-[4/3] -mx-6 -mt-6 mb-6 rounded-none border-0 sm:-mx-8 sm:-mt-8" />
+              <span className="chip self-start">Деловые возможности</span>
+              <h3 className="title-md mt-4">Партнерство и бизнес-проекты</h3>
+              <p className="mt-3 text-sm leading-relaxed text-sand-100/70">
+                ORLEU открыт для бизнеса. Аренда зон под услуги, совместное
+                производство и развитие инфраструктуры на взаимовыгодных условиях.
+              </p>
+              <Link to="/partnership" className="btn-primary mt-6 self-start">
+                Стать партнером <IconArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 5. GALLERY / 3D */}
+      {/* 5. GALLERY / Атмосфера ORLEU */}
       <section className="section">
         <div className="container-x">
           <SectionHeader
-            eyebrow="Атмосфера ӨRLEU"
-            title="Убедитесь сами: фото и 3D-тур"
-            subtitle="Лучшие кадры и возможность виртуально пройтись по КХ, чтобы почувствовать его атмосферу."
+            eyebrow="Атмосфера ORLEU"
+            title="Убедитесь сами: ORLEU в объективе"
+            subtitle="Лучшие кадры нашего хозяйства и карта территории для вашего удобства."
           />
 
           <div className="mt-14">
             <Carousel
               slides={[
-                { src: '', title: 'Панорама с дрона на закате', caption: 'Реку Аса видно на 5 км вдоль южной границы.' },
-                { src: '', title: 'Зеркальная гладь водоема', caption: '25 гектаров проточной воды со статусом ОТРХ.' },
-                { src: '', title: 'Палаточный городок в роще', caption: 'Тень столетних деревьев и оборудованные костровые зоны.' },
-                { src: '', title: 'Поля под клевер и пастбища', caption: '230 га — площадь для СП и совместного сенокоса.' },
+                { src: '', title: 'Интерактивная карта', caption: 'Карта территории КФХ ORLEU.' },
+                { src: '', title: 'Вид с высоты', caption: 'Панорама водоёма и полей.' },
+                { src: '', title: 'Трофейный улов', caption: 'Сазан, карп, амур.' },
+                { src: '', title: 'Закат в ORLEU', caption: 'Тишина и красота природы.' },
               ].map((s, i) => ({
                 ...s,
-                src:
-                  ['aerial', 'water', 'tent', 'field', 'forest', 'sunset'][i % 6] &&
-                  `data:image/svg+xml;utf8,${encodeURIComponent(
-                    `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'><rect width='16' height='9' fill='%230a1612'/></svg>`
-                  )}`,
+                src: `data:image/svg+xml;utf8,${encodeURIComponent(
+                  `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'><rect width='16' height='9' fill='%230a1612'/></svg>`
+                )}`,
+                variant: ['aerial', 'water', 'tent', 'field', 'forest', 'sunset'][i % 6],
               }))}
             />
-
-            <div className="mt-6 grid gap-4 sm:grid-cols-4">
-              <AssetPlaceholder variant="aerial" title="Аэро · Восход" />
-              <AssetPlaceholder variant="water" title="Водоем" />
-              <AssetPlaceholder variant="forest" title="Роща" />
-              <AssetPlaceholder variant="field" title="Поля" />
-            </div>
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
               <button className="btn-ghost">Смотреть все фото</button>
               <button className="btn-primary">
-                <IconSparkle className="h-4 w-4" /> Погрузиться в 3D-тур
+                <IconSparkle className="h-4 w-4" /> Открыть карту территории
               </button>
             </div>
           </div>
@@ -230,15 +287,71 @@ export default function Home() {
       <section className="border-y border-white/5 bg-ink-900/40 py-6">
         <div className="container-x flex flex-wrap items-center justify-between gap-6 text-xs uppercase tracking-[0.3em] text-sand-100/45">
           <span className="inline-flex items-center gap-2"><IconWaves className="h-4 w-4 text-moss-400" /> р. Аса</span>
-          <span className="inline-flex items-center gap-2"><IconLeaf className="h-4 w-4 text-moss-400" /> 230 га земли</span>
+          <span className="inline-flex items-center gap-2"><IconLeaf className="h-4 w-4 text-moss-400" /> 230+ га земли</span>
           <span className="inline-flex items-center gap-2"><IconFish className="h-4 w-4 text-moss-400" /> сазан · карп · амур</span>
           <span className="inline-flex items-center gap-2"><IconTent className="h-4 w-4 text-moss-400" /> кемпинг 24/7</span>
-          <span className="inline-flex items-center gap-2"><IconRoute className="h-4 w-4 text-moss-400" /> 30 км от Тараза</span>
+          <span className="inline-flex items-center gap-2"><IconRoute className="h-4 w-4 text-moss-400" /> 25 км от Тараза</span>
+          <span className="inline-flex items-center gap-2"><IconSeed className="h-4 w-4 text-moss-400" /> ОТРХ статус</span>
         </div>
       </section>
 
-      {/* 6. CONTACT */}
-      <ContactStrip />
+      {/* 6. WHAT INTERESTS YOU — WhatsApp CTA */}
+      <section className="section">
+        <div className="container-x">
+          <SectionHeader
+            eyebrow="Что вас интересует?"
+            title="Что вас интересует?"
+            subtitle="Вопросы отдыха или сотрудничества — выберите подходящую категорию, и мы ответим в WhatsApp."
+          />
+
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 max-w-3xl mx-auto">
+            <a
+              href={WA_GUESTS}
+              target="_blank"
+              rel="noreferrer"
+              className="group relative overflow-hidden rounded-3xl border border-moss-500/30 bg-gradient-to-br from-moss-500/15 via-ink-850 to-ink-900 p-8 transition hover:-translate-y-1 hover:border-moss-500/60"
+            >
+              <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-moss-500/20 blur-3xl" />
+              <span className="chip">Для гостей</span>
+              <h3 className="title-md mt-5">Планирую отдых</h3>
+              <p className="mt-3 text-sm text-sand-100/70">
+                Узнать про отдых и рыбалку в ORLEU, забронировать место или инвентарь.
+              </p>
+              <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-moss-400">
+                Написать в WhatsApp
+                <IconArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+              </div>
+            </a>
+
+            <a
+              href={WA_PARTNERS}
+              target="_blank"
+              rel="noreferrer"
+              className="group relative overflow-hidden rounded-3xl border border-white/15 bg-gradient-to-br from-ink-800 to-ink-900 p-8 transition hover:-translate-y-1 hover:border-moss-500/40"
+            >
+              <span className="chip">Для партнёров</span>
+              <h3 className="title-md mt-5">Предложение по партнёрству</h3>
+              <p className="mt-3 text-sm text-sand-100/70">
+                Сотрудничество и бизнес-возможности на территории ORLEU.
+              </p>
+              <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-sand-50">
+                Написать в WhatsApp
+                <IconArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. CONTACTS */}
+      <ContactBlock showGuestPartnerLinks />
+
+      <VideoLightbox
+        open={videoOpen}
+        onClose={() => setVideoOpen(false)}
+        videoUrl="https://www.youtube.com/watch?v=SW4hlTy8Hwg"
+        title="Видео-обзор КФХ ORLEU"
+      />
     </>
   );
 }
