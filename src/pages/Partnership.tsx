@@ -227,7 +227,7 @@ export default function Partnership() {
           />
           <div className="mt-12">
             <MapBlock
-              caption="Нажмите на карту, чтобы рассмотреть территорию в деталях."
+              caption="Листайте карту стрелками, по клику — полноэкранный просмотр."
               videoLabel="Видео-обзор инфраструктуры"
               onVideoClick={() => setVideoOpen(true)}
             />

@@ -87,4 +87,12 @@
   .divider-fade {
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
   }
+  /* Скрытый скроллбар для листаемой панорамы карты */
+  .scrollbar-none {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
 }
