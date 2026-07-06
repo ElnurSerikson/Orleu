@@ -161,14 +161,19 @@ export default function Partnership() {
     <>
       {/* 3.1 HERO */}
       <section className="relative isolate overflow-hidden">
-        <AssetPlaceholder variant="aerial" className="absolute inset-0 rounded-none border-0" />
+        <AssetPlaceholder
+          variant="aerial"
+          src="/photos/dji-aerial.jpg"
+          alt="Аэросъёмка территории ӨRLEU"
+          className="absolute inset-0 rounded-none border-0"
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-ink-950/90 via-ink-950/65 to-ink-950" />
         <div className="container-x relative grid min-h-[78vh] place-items-center py-24">
           <div className="max-w-3xl text-center">
             <span className="chip">B2B · СП · Инвестиции</span>
             <h1 className="title-xl mt-6 text-balance">
               ӨRLEU — масштабируемая бизнес-платформа на{' '}
-              <span className="bg-gradient-to-r from-moss-400 to-moss-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-white to-sand-200 bg-clip-text text-transparent">
                 255 гектарах
               </span>
             </h1>
@@ -191,7 +196,7 @@ export default function Partnership() {
       </section>
 
       {/* 3.2 ФАКТЫ И ПОТЕНЦИАЛ */}
-      <section className="section">
+      <section className="section section-solid">
         <div className="container-x">
           <SectionHeader
             eyebrow="Факты и потенциал"
@@ -222,14 +227,7 @@ export default function Partnership() {
           />
           <div className="mt-12">
             <MapBlock
-              pins={[
-                { x: 18, y: 30, label: 'Зона активного отдыха', tone: 'amber' },
-                { x: 38, y: 50, label: 'Профессиональное рыбоводство', tone: 'blue' },
-                { x: 56, y: 38, label: 'Event-площадка' },
-                { x: 74, y: 52, label: 'Поля под клевер 230 га' },
-                { x: 88, y: 30, label: 'Пастбища МРС' },
-              ]}
-              caption="Кликните на маркер, чтобы увидеть описание зоны."
+              caption="Нажмите на карту, чтобы рассмотреть территорию в деталях."
               videoLabel="Видео-обзор инфраструктуры"
               onVideoClick={() => setVideoOpen(true)}
             />
@@ -262,7 +260,7 @@ export default function Partnership() {
       </section>
 
       {/* 3.4 ВЫГОДЫ ПАРТНЁРСТВА */}
-      <section className="section">
+      <section className="section section-solid">
         <div className="container-x">
           <SectionHeader
             eyebrow="Бизнес-модель"
@@ -296,19 +294,19 @@ export default function Partnership() {
             {CATEGORIES.map((c, i) => (
               <div key={c.title} className="card relative flex flex-col overflow-hidden">
                 <span className="chip">{c.tag}</span>
-                <span className="mt-6 grid h-12 w-12 place-items-center rounded-2xl bg-moss-500/10 text-moss-400 ring-1 ring-moss-500/20">
+                <span className="mt-6 grid h-12 w-12 place-items-center rounded-2xl bg-white/10 text-sand-50 ring-1 ring-white/20">
                   {c.icon}
                 </span>
                 <h3 className="mt-5 text-xl font-bold text-sand-50">{c.title}</h3>
                 <ul className="mt-4 space-y-2 text-sm text-sand-100/75">
                   {c.items.map((it) => (
                     <li key={it} className="flex items-center gap-2">
-                      <span className="h-1 w-1 rounded-full bg-moss-500" /> {it}
+                      <span className="h-1 w-1 rounded-full bg-white/70" /> {it}
                     </li>
                   ))}
                 </ul>
                 <div className="mt-6 rounded-xl border border-white/10 bg-ink-950/40 p-4 text-xs leading-relaxed text-sand-100/65">
-                  <div className="mb-1 text-[10px] uppercase tracking-[0.2em] text-moss-400">
+                  <div className="mb-1 text-[10px] uppercase tracking-[0.2em] text-sand-100/60">
                     Условия сотрудничества
                   </div>
                   {c.conditions}
@@ -331,7 +329,7 @@ export default function Partnership() {
       </section>
 
       {/* 3.6 FAQ */}
-      <section className="section">
+      <section className="section section-solid">
         <div className="container-x grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <SectionHeader
@@ -346,7 +344,7 @@ export default function Partnership() {
               rel="noreferrer"
               className="btn-primary mt-8"
             >
-              <IconWhatsApp className="h-4 w-4" /> Спросить напрямую
+              <IconWhatsApp className="h-4 w-4 text-moss-400" /> Спросить напрямую
             </a>
           </div>
           <Accordion items={FAQ} />

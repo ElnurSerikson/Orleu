@@ -20,7 +20,7 @@ export default function Carousel({ slides }: Props) {
             <img src={s.src} alt={s.title} className="h-full w-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/30 to-transparent" />
             <div className="absolute inset-x-6 bottom-6 sm:inset-x-10 sm:bottom-10">
-              <div className="text-xs font-semibold uppercase tracking-[0.3em] text-moss-400">
+              <div className="text-xs font-semibold uppercase tracking-[0.3em] text-sand-100/70">
                 {String(idx + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
               </div>
               <h3 className="mt-2 text-2xl font-bold text-sand-50 sm:text-3xl">{s.title}</h3>
@@ -54,7 +54,7 @@ export default function Carousel({ slides }: Props) {
             onClick={() => setI(idx)}
             aria-label={`Слайд ${idx + 1}`}
             className={`h-1.5 rounded-full transition-all ${
-              i === idx ? 'w-8 bg-moss-500' : 'w-3 bg-white/30'
+              i === idx ? 'w-8 bg-white' : 'w-3 bg-white/30'
             }`}
           />
         ))}

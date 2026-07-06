@@ -32,11 +32,11 @@ export default function ContactBlock({
           {/* Колонка 1: Контакты */}
           <div className="card flex flex-col">
             <div className="flex items-center gap-3">
-              <span className="grid h-10 w-10 place-items-center rounded-full bg-moss-500/15 text-moss-400">
+              <span className="grid h-10 w-10 place-items-center rounded-full bg-white/10 text-sand-50 ring-1 ring-white/20">
                 <IconPhone className="h-5 w-5" />
               </span>
               <div>
-                <div className="text-xs uppercase tracking-[0.2em] text-moss-400">
+                <div className="text-xs uppercase tracking-[0.2em] text-sand-100/60">
                   Наши контакты
                 </div>
                 <div className="text-lg font-bold text-sand-50">
@@ -49,9 +49,9 @@ export default function ContactBlock({
               <li>
                 <a
                   href="tel:+77788868808"
-                  className="flex items-center gap-3 rounded-xl border border-white/10 bg-ink-950/40 px-4 py-3 font-semibold text-sand-50 transition hover:border-moss-500/40"
+                  className="flex items-center gap-3 rounded-xl border border-white/10 bg-ink-950/40 px-4 py-3 font-semibold text-sand-50 transition hover:border-white/35"
                 >
-                  <IconPhone className="h-5 w-5 text-moss-400" />
+                  <IconPhone className="h-5 w-5 text-sand-50/90" />
                   +7 778 886 88 08
                 </a>
               </li>
@@ -60,7 +60,7 @@ export default function ContactBlock({
                   href="https://wa.me/77788868808"
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-3 rounded-xl border border-white/10 bg-ink-950/40 px-4 py-3 font-semibold text-sand-50 transition hover:border-moss-500/40"
+                  className="flex items-center gap-3 rounded-xl border border-white/10 bg-ink-950/40 px-4 py-3 font-semibold text-sand-50 transition hover:border-white/35"
                 >
                   <svg viewBox="0 0 24 24" className="h-5 w-5 text-moss-400" fill="currentColor">
                     <path d="M19.07 4.93A10 10 0 0 0 2.55 16.4L1 22l5.74-1.5a10 10 0 0 0 14.78-8.69 10 10 0 0 0-2.45-6.88ZM12 20a8 8 0 0 1-4.07-1.12l-.29-.18-3.4.9.91-3.32-.19-.31A8 8 0 1 1 12 20Zm4.5-5.93-.43-.22c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.69.15-.21.3-.79.98-.97 1.18-.18.21-.36.23-.66.08a6.6 6.6 0 0 1-1.95-1.2 7.4 7.4 0 0 1-1.36-1.7c-.14-.24 0-.37.11-.5.11-.13.24-.31.36-.46.12-.16.16-.27.24-.45.08-.18.04-.34-.02-.49-.06-.15-.66-1.6-.9-2.18-.24-.57-.49-.5-.68-.51h-.58c-.2 0-.5.07-.77.37-.27.3-1 1-1 2.45 0 1.45 1.03 2.85 1.17 3.05.14.2 2.03 3.1 4.92 4.34a16 16 0 0 0 1.65.61c.69.22 1.32.19 1.81.12.55-.08 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.07-.13-.27-.21-.57-.36Z" />
@@ -71,9 +71,9 @@ export default function ContactBlock({
               <li>
                 <a
                   href="mailto:Orleu8.kz@gmail.com"
-                  className="flex items-center gap-3 rounded-xl border border-white/10 bg-ink-950/40 px-4 py-3 font-semibold text-sand-50 transition hover:border-moss-500/40"
+                  className="flex items-center gap-3 rounded-xl border border-white/10 bg-ink-950/40 px-4 py-3 font-semibold text-sand-50 transition hover:border-white/35"
                 >
-                  <IconMail className="h-5 w-5 text-moss-400" />
+                  <IconMail className="h-5 w-5 text-sand-50/90" />
                   Orleu8.kz@gmail.com
                 </a>
               </li>
@@ -81,7 +81,7 @@ export default function ContactBlock({
 
             <div className="mt-6 flex flex-wrap gap-2">
               <a
-                href="https://instagram.com/orleo8.kz"
+                href="https://www.instagram.com/orleu8.kz/"
                 target="_blank"
                 rel="noreferrer"
                 className="btn-ghost text-xs"
@@ -89,7 +89,7 @@ export default function ContactBlock({
                 <IconInstagram className="h-4 w-4" /> Instagram
               </a>
               <a
-                href="https://tiktok.com/@orleo8.kz"
+                href="https://www.tiktok.com/@orleu8.kz"
                 target="_blank"
                 rel="noreferrer"
                 className="btn-ghost text-xs"
@@ -113,11 +113,11 @@ export default function ContactBlock({
           {/* Колонка 2: Форма */}
           <div className="card flex flex-col">
             <div className="flex items-center gap-3">
-              <span className="grid h-10 w-10 place-items-center rounded-full bg-moss-500/15 text-moss-400">
+              <span className="grid h-10 w-10 place-items-center rounded-full bg-white/10 text-sand-50 ring-1 ring-white/20">
                 <IconMail className="h-5 w-5" />
               </span>
               <div>
-                <div className="text-xs uppercase tracking-[0.2em] text-moss-400">
+                <div className="text-xs uppercase tracking-[0.2em] text-sand-100/60">
                   Форма связи
                 </div>
                 <div className="text-lg font-bold text-sand-50">
@@ -140,7 +140,7 @@ export default function ContactBlock({
                 </label>
                 <input
                   required
-                  className="mt-2 w-full rounded-xl border border-white/10 bg-ink-950/40 px-4 py-3 text-sm text-sand-50 outline-none transition focus:border-moss-500/60"
+                  className="mt-2 w-full rounded-xl border border-white/10 bg-ink-950/40 px-4 py-3 text-sm text-sand-50 outline-none transition focus:border-white/50"
                   placeholder="Как к вам обращаться"
                 />
               </div>
@@ -151,7 +151,7 @@ export default function ContactBlock({
                 <input
                   required
                   type="tel"
-                  className="mt-2 w-full rounded-xl border border-white/10 bg-ink-950/40 px-4 py-3 text-sm text-sand-50 outline-none transition focus:border-moss-500/60"
+                  className="mt-2 w-full rounded-xl border border-white/10 bg-ink-950/40 px-4 py-3 text-sm text-sand-50 outline-none transition focus:border-white/50"
                   placeholder="+7 (___) ___-__-__"
                 />
               </div>
@@ -161,7 +161,7 @@ export default function ContactBlock({
                 </label>
                 <textarea
                   rows={3}
-                  className="mt-2 w-full resize-none rounded-xl border border-white/10 bg-ink-950/40 px-4 py-3 text-sm text-sand-50 outline-none transition focus:border-moss-500/60"
+                  className="mt-2 w-full resize-none rounded-xl border border-white/10 bg-ink-950/40 px-4 py-3 text-sm text-sand-50 outline-none transition focus:border-white/50"
                   placeholder="Коротко опишите вопрос"
                 />
               </div>
@@ -169,7 +169,7 @@ export default function ContactBlock({
                 Отправить
               </button>
               {sent && (
-                <div className="rounded-xl border border-moss-500/30 bg-moss-500/10 px-4 py-3 text-sm text-moss-400">
+                <div className="rounded-xl border border-white/25 bg-white/10 px-4 py-3 text-sm text-sand-50">
                   Спасибо! Заявка отправлена. Мы свяжемся с вами в ближайшее время.
                 </div>
               )}
@@ -179,11 +179,11 @@ export default function ContactBlock({
           {/* Колонка 3: Карта */}
           <div className="card flex flex-col">
             <div className="flex items-center gap-3">
-              <span className="grid h-10 w-10 place-items-center rounded-full bg-moss-500/15 text-moss-400">
+              <span className="grid h-10 w-10 place-items-center rounded-full bg-white/10 text-sand-50 ring-1 ring-white/20">
                 <IconPin className="h-5 w-5" />
               </span>
               <div>
-                <div className="text-xs uppercase tracking-[0.2em] text-moss-400">
+                <div className="text-xs uppercase tracking-[0.2em] text-sand-100/60">
                   Карта проезда
                 </div>
                 <div className="text-lg font-bold text-sand-50">Как добраться</div>
@@ -193,7 +193,7 @@ export default function ContactBlock({
             <div className="mt-6 overflow-hidden rounded-2xl border border-white/10">
               <iframe
                 title="Яндекс.Карта — КФХ ӨRLEU"
-                src="https://yandex.kz/map-widget/v1/?ll=71.400000%2C42.900000&z=11"
+                src="https://yandex.kz/map-widget/v1/?ll=71.037408%2C43.028010&z=14&pt=71.037408%2C43.028010%2Cpm2gnm"
                 className="h-56 w-full"
                 loading="lazy"
                 allowFullScreen
@@ -202,7 +202,7 @@ export default function ContactBlock({
 
             <div className="mt-6 grid gap-2 sm:grid-cols-3">
               <a
-                href="https://yandex.kz/maps/"
+                href="https://yandex.kz/maps/?pt=71.037408,43.028010&z=15&l=map"
                 target="_blank"
                 rel="noreferrer"
                 className="btn-ghost text-xs"
@@ -210,7 +210,7 @@ export default function ContactBlock({
                 <IconRoute className="h-4 w-4" /> Яндекс
               </a>
               <a
-                href="https://www.google.com/maps"
+                href="https://www.google.com/maps/search/?api=1&query=43.028010,71.037408"
                 target="_blank"
                 rel="noreferrer"
                 className="btn-ghost text-xs"
@@ -218,7 +218,7 @@ export default function ContactBlock({
                 <IconRoute className="h-4 w-4" /> Google
               </a>
               <a
-                href="https://2gis.kz/"
+                href="https://2gis.kz/taraz/firm/70000001115446239"
                 target="_blank"
                 rel="noreferrer"
                 className="btn-ghost text-xs"

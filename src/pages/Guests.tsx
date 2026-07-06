@@ -25,30 +25,35 @@ const WA_GUESTS =
 const BANNERS = [
   {
     visual: 'forest' as const,
+    src: '/photos/p634.jpg',
     title: 'Первозданная природа',
     text: 'Чистый воздух, густая роща, проточный водоем и полная удаленность от городского шума для вашего уединения.',
     icon: <IconLeaf className="h-6 w-6" />,
   },
   {
     visual: 'tent' as const,
+    src: '/photos/p624.jpg',
     title: 'Место для ваших событий',
     text: 'Просторная территория для тимбилдингов, корпоративов и семейных праздников с возможностью ночевки в палатках под звездами.',
     icon: <IconTent className="h-6 w-6" />,
   },
   {
     visual: 'fish' as const,
+    src: '/photos/p646.jpg',
     title: 'Трофейная рыбалка',
     text: 'Проточный водоем (25 га) с сазаном, карпом и амуром. 2 кг улова уже включены в путевку.',
     icon: <IconFish className="h-6 w-6" />,
   },
   {
     visual: 'field' as const,
+    src: '/photos/p635.jpg',
     title: 'Прокат и удобства',
     text: 'Аренда удочек и палаток, мангалов, барбекюшниц и казанов. На кассе всегда в наличии дрова, уголь, прикормка, маринад и холодные напитки.',
     icon: <IconShield className="h-6 w-6" />,
   },
   {
     visual: 'sunset' as const,
+    src: '/photos/p660.jpg',
     title: 'Развитие ORLEU',
     text: 'Скоро открытие партнеров: бани на дровах, эко-кафе, топчаны и беседки, прокат лодок и квадроциклов, конные прогулки, стрельба из лука и многое другое.',
     icon: <IconSparkle className="h-6 w-6" />,
@@ -91,14 +96,19 @@ export default function Guests() {
     <>
       {/* 2.1 HERO */}
       <section className="relative isolate overflow-hidden">
-        <AssetPlaceholder variant="water" className="absolute inset-0 rounded-none border-0" />
+        <AssetPlaceholder
+          variant="water"
+          src="/photos/p639.jpg"
+          alt="Водоём ORLEU с камышовыми берегами"
+          className="absolute inset-0 rounded-none border-0"
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-ink-950/85 via-ink-950/55 to-ink-950" />
         <div className="container-x relative grid min-h-[78vh] place-items-center py-24">
           <div className="max-w-3xl text-center">
             <span className="chip">Отдых · Рыбалка · Кемпинг</span>
             <h1 className="title-xl mt-6 text-balance">
               ORLEU: Территория вашего{' '}
-              <span className="bg-gradient-to-r from-moss-400 to-moss-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-white to-sand-200 bg-clip-text text-transparent">
                 комфортного отдыха на природе
               </span>
             </h1>
@@ -109,7 +119,7 @@ export default function Guests() {
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
               <a href={WA_GUESTS} target="_blank" rel="noreferrer" className="btn-primary">
-                <IconWhatsApp className="h-5 w-5" /> Планирую отдых
+                <IconWhatsApp className="h-5 w-5 text-moss-400" /> Планирую отдых
               </a>
               <a href="#prices" className="btn-ghost">Наши тарифы</a>
             </div>
@@ -118,7 +128,7 @@ export default function Guests() {
       </section>
 
       {/* 2.2 MAP + VIDEO */}
-      <section className="section">
+      <section className="section section-solid">
         <div className="container-x">
           <SectionHeader
             eyebrow="Ваш гид по территории"
@@ -127,14 +137,7 @@ export default function Guests() {
           />
           <div className="mt-12">
             <MapBlock
-              pins={[
-                { x: 18, y: 35, label: 'Въезд / касса', tone: 'amber' },
-                { x: 32, y: 55, label: 'Автостоянка' },
-                { x: 50, y: 40, label: 'Пикниковая зона' },
-                { x: 64, y: 60, label: 'Роща' },
-                { x: 82, y: 50, label: 'Сектор глубокой рыбалки', tone: 'blue' },
-              ]}
-              caption="Интерактивная карта территории — приблизьте, чтобы рассмотреть зоны."
+              caption="Нажмите на карту, чтобы рассмотреть зоны в деталях."
               videoLabel="Посмотреть видео всей территории отдыха"
               onVideoClick={() => setVideoOpen(true)}
               extraActions={
@@ -169,11 +172,13 @@ export default function Guests() {
               >
                 <AssetPlaceholder
                   variant={b.visual}
+                  src={b.src}
+                  alt={b.title}
                   className={`-mx-6 -mt-6 mb-6 rounded-none border-0 sm:-mx-8 sm:-mt-8 ${
                     i === 0 ? 'aspect-[2/1]' : 'aspect-[4/3]'
                   }`}
                 />
-                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-moss-500/10 text-moss-400 ring-1 ring-moss-500/20">
+                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-white/10 text-sand-50 ring-1 ring-white/20">
                   {b.icon}
                 </span>
                 <h3 className="mt-5 text-xl font-bold text-sand-50">{b.title}</h3>
@@ -185,7 +190,7 @@ export default function Guests() {
       </section>
 
       {/* 2.4 Тарифы */}
-      <section id="prices" className="section">
+      <section id="prices" className="section section-solid">
         <div className="container-x">
           <SectionHeader
             eyebrow="Тарифы"
@@ -215,7 +220,7 @@ export default function Guests() {
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {RULES.map((r) => (
               <div key={r.title} className="card flex flex-col gap-4">
-                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-moss-500/10 text-moss-400 ring-1 ring-moss-500/20">
+                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-white/10 text-sand-50 ring-1 ring-white/20">
                   {r.icon}
                 </span>
                 <div>
@@ -231,9 +236,9 @@ export default function Guests() {
       {/* 2.6 CTA */}
       <section className="section">
         <div className="container-x">
-          <div className="relative overflow-hidden rounded-3xl border border-moss-500/30 bg-gradient-to-br from-moss-500/15 via-ink-850 to-ink-900 p-10 sm:p-16 text-center">
-            <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-moss-500/20 blur-3xl" />
-            <div className="absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-moss-700/30 blur-3xl" />
+          <div className="relative overflow-hidden rounded-3xl border border-white/25 bg-white/[0.07] backdrop-blur-xl p-10 sm:p-16 text-center">
+            <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
+            <div className="absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-white/[0.07] blur-3xl" />
             <div className="relative">
               <span className="chip">Готовы к отдыху?</span>
               <h2 className="title-lg mt-6">Готовы к отдыху в ORLEU?</h2>
@@ -246,7 +251,7 @@ export default function Guests() {
                 rel="noreferrer"
                 className="btn-primary mt-10 animate-pulseGlow"
               >
-                <IconWhatsApp className="h-5 w-5" />
+                <IconWhatsApp className="h-5 w-5 text-moss-400" />
                 Планирую отдых
               </a>
             </div>
@@ -285,16 +290,13 @@ export default function Guests() {
             </button>
             <Carousel
               slides={[
-                { src: '', title: 'Вид с высоты', caption: 'Панорама водоёма и полей.' },
-                { src: '', title: 'Закат в ORLEU' },
-                { src: '', title: 'Трофейный улов' },
-                { src: '', title: 'Кемпинговая зона' },
-              ].map((s) => ({
-                ...s,
-                src: `data:image/svg+xml;utf8,${encodeURIComponent(
-                  `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'><rect width='16' height='9' fill='%230a1612'/></svg>`
-                )}`,
-              }))}
+                { src: '/photos/dji-aerial.jpg', title: 'Вид с высоты', caption: 'Панорама водоёма и полей.' },
+                { src: '/photos/p639.jpg', title: 'Водоём 25 га' },
+                { src: '/photos/p624.jpg', title: 'Пикниковая роща' },
+                { src: '/photos/p646.jpg', title: 'Берег для рыбалки' },
+                { src: '/photos/p635.jpg', title: 'Русло реки Аса' },
+                { src: '/photos/p660.jpg', title: 'Вечер на берегу' },
+              ]}
             />
           </div>
         </div>

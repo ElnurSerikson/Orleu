@@ -29,19 +29,19 @@ export default {
         sans: ['"Inter"', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
-        glow: '0 0 0 1px rgba(255,255,255,0.06), 0 30px 80px -40px rgba(34,197,94,0.45)',
+        glow: '0 0 0 1px rgba(255,255,255,0.08), 0 24px 70px -35px rgba(255,255,255,0.3)',
         card: '0 0 0 1px rgba(255,255,255,0.06), 0 18px 40px -24px rgba(0,0,0,0.6)',
       },
       backgroundImage: {
         'leaf-radial':
-          'radial-gradient(circle at 20% 10%, rgba(34,197,94,0.16), transparent 55%), radial-gradient(circle at 85% 90%, rgba(22,163,74,0.18), transparent 50%)',
+          'radial-gradient(circle at 20% 10%, rgba(255,255,255,0.08), transparent 55%), radial-gradient(circle at 85% 90%, rgba(255,255,255,0.06), transparent 50%)',
         'leaves-overlay':
           'linear-gradient(180deg, rgba(7,13,11,0.85), rgba(7,13,11,0.7))',
       },
       keyframes: {
         pulseGlow: {
-          '0%, 100%': { boxShadow: '0 0 0 0 rgba(34,197,94,0.55)' },
-          '50%': { boxShadow: '0 0 0 14px rgba(34,197,94,0)' },
+          '0%, 100%': { boxShadow: '0 0 0 0 rgba(255,255,255,0.45)' },
+          '50%': { boxShadow: '0 0 0 14px rgba(255,255,255,0)' },
         },
         floatSlow: {
           '0%, 100%': { transform: 'translateY(0px)' },

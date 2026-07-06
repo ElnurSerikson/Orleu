@@ -17,14 +17,14 @@ import {
 } from '../components/Icon';
 
 const GALLERY = [
-  { variant: 'aerial' as const, title: 'Панорама с дрона' },
-  { variant: 'water' as const, title: 'Зеркальная гладь водоема' },
-  { variant: 'forest' as const, title: 'Столетняя роща' },
-  { variant: 'field' as const, title: 'Поля под клевер' },
-  { variant: 'sunset' as const, title: 'Закат над р. Аса' },
-  { variant: 'tent' as const, title: 'Кемпинговая зона' },
-  { variant: 'fish' as const, title: 'Трофейный улов' },
-  { variant: 'aerial' as const, title: 'Инфраструктура хозяйства' },
+  { variant: 'aerial' as const, src: '/photos/dji-aerial.jpg', title: 'Панорама с дрона' },
+  { variant: 'water' as const, src: '/photos/p619.jpg', title: 'Зеркальная гладь водоема' },
+  { variant: 'forest' as const, src: '/photos/p637.jpg', title: 'Прибрежная роща' },
+  { variant: 'field' as const, src: '/photos/p650.jpg', title: 'Поля под клевер' },
+  { variant: 'sunset' as const, src: '/photos/p660.jpg', title: 'Закат над р. Аса' },
+  { variant: 'tent' as const, src: '/photos/p624.jpg', title: 'Кемпинговая зона' },
+  { variant: 'fish' as const, src: '/photos/p646.jpg', title: 'Рыболовные сектора' },
+  { variant: 'aerial' as const, src: '/photos/p635.jpg', title: 'Русло реки Аса' },
 ];
 
 const ACTIVITIES = [
@@ -33,24 +33,28 @@ const ACTIVITIES = [
     title: 'Индустриальная Аквакультура',
     desc: 'Управление зарыбленным водоемом (25 га) с 10-летней историей. Фокус на промышленное выращивание товарной рыбы и развитие садковых линий.',
     visual: 'water' as const,
+    src: '/photos/p643.jpg',
   },
   {
     icon: <IconSeed />,
     title: 'Агросектор и Корма',
     desc: 'Стратегическое использование земельного фонда для обеспечения независимой кормовой базы и развития посевных площадей.',
     visual: 'field' as const,
+    src: '/photos/p650.jpg',
   },
   {
     icon: <IconSheep />,
     title: 'Животноводство',
     desc: 'Создание базы для эффективного разведения мелкого рогатого скота (МРС), обеспеченной пастбищными угодьями и инфраструктурой.',
     visual: 'forest' as const,
+    src: '/photos/p654.jpg',
   },
   {
     icon: <IconTent />,
     title: 'Современная Рекреация',
     desc: 'B2C-платформа: превращение береговой линии в прибыльный сервис для отдыха, который работает 24/7, обеспечивая поток клиентов для всех бизнес-единиц.',
     visual: 'tent' as const,
+    src: '/photos/p624.jpg',
   },
 ];
 
@@ -61,14 +65,19 @@ export default function About() {
     <>
       {/* 4.1 HERO */}
       <section className="relative isolate overflow-hidden">
-        <AssetPlaceholder variant="aerial" className="absolute inset-0 rounded-none border-0" />
+        <AssetPlaceholder
+          variant="aerial"
+          src="/hero-bg.jpg"
+          alt="Аэросъёмка КФХ ӨRLEU"
+          className="absolute inset-0 rounded-none border-0"
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-ink-950/85 via-ink-950/55 to-ink-950" />
         <div className="container-x relative grid min-h-[78vh] place-items-center py-24">
           <div className="max-w-3xl text-center">
             <span className="chip">Масштаб производства КФХ ӨRLEU</span>
             <h1 className="title-xl mt-6 text-balance">
               КФХ ӨRLEU:{' '}
-              <span className="bg-gradient-to-r from-moss-400 to-moss-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-white to-sand-200 bg-clip-text text-transparent">
                 Масштабное агро-рекреационное производство
               </span>
             </h1>
@@ -87,7 +96,7 @@ export default function About() {
       </section>
 
       {/* 4.2 СТАТУС И ФИЛОСОФИЯ */}
-      <section className="section">
+      <section className="section section-solid">
         <div className="container-x">
           <SectionHeader
             eyebrow="Статус и Философия бизнеса"
@@ -129,13 +138,13 @@ export default function About() {
             {ACTIVITIES.map((a) => (
               <div key={a.title} className="card grid items-center gap-6 sm:grid-cols-[1.1fr_1fr]">
                 <div>
-                  <span className="grid h-12 w-12 place-items-center rounded-2xl bg-moss-500/10 text-moss-400 ring-1 ring-moss-500/20">
+                  <span className="grid h-12 w-12 place-items-center rounded-2xl bg-white/10 text-sand-50 ring-1 ring-white/20">
                     {a.icon}
                   </span>
                   <h3 className="mt-5 text-xl font-bold text-sand-50">{a.title}</h3>
                   <p className="mt-3 text-sm text-sand-100/70">{a.desc}</p>
                 </div>
-                <AssetPlaceholder variant={a.visual} className="aspect-[4/3]" />
+                <AssetPlaceholder variant={a.visual} src={a.src} alt={a.title} className="aspect-[4/3]" />
               </div>
             ))}
           </div>
@@ -143,7 +152,7 @@ export default function About() {
       </section>
 
       {/* 4.4 СТРАТЕГИЯ РАЗВИТИЯ */}
-      <section className="section">
+      <section className="section section-solid">
         <div className="container-x">
           <SectionHeader
             eyebrow="Стратегия развития и инвестиционный потенциал"
@@ -201,6 +210,8 @@ export default function About() {
               >
                 <AssetPlaceholder
                   variant={g.variant}
+                  src={g.src}
+                  alt={g.title}
                   className="aspect-[4/3] transition group-hover:-translate-y-1"
                   badge={`0${i + 1}`}
                 />
@@ -215,7 +226,7 @@ export default function About() {
       </section>
 
       {/* 4.6 ФИНАЛИЗАЦИЯ ВЫБОРА */}
-      <section className="section">
+      <section className="section section-solid">
         <div className="container-x">
           <SectionHeader
             eyebrow="Финализация выбора"
@@ -224,16 +235,16 @@ export default function About() {
           <div className="mt-14 grid gap-6 lg:grid-cols-2">
             <Link
               to="/guests"
-              className="group relative overflow-hidden rounded-3xl border border-moss-500/30 bg-gradient-to-br from-moss-500/15 to-ink-900 p-10 transition hover:-translate-y-1"
+              className="group relative overflow-hidden rounded-3xl border border-white/25 bg-white/[0.07] backdrop-blur-xl p-10 transition hover:-translate-y-1"
             >
-              <div className="absolute -right-16 -top-16 h-60 w-60 rounded-full bg-moss-500/20 blur-3xl" />
+              <div className="absolute -right-16 -top-16 h-60 w-60 rounded-full bg-white/10 blur-3xl" />
               <span className="chip">Для Гостей</span>
               <h3 className="title-md relative mt-5">Рекреация и отдых</h3>
               <p className="lead relative mt-3 max-w-md">
                 Территория комфорта на берегу реки Малая Аса: от профессиональной
                 трофейной рыбалки до организации событийного отдыха в кругу близких.
               </p>
-              <div className="relative mt-8 inline-flex items-center gap-2 text-sm font-semibold text-moss-400">
+              <div className="relative mt-8 inline-flex items-center gap-2 text-sm font-semibold text-sand-50">
                 Перейти в раздел отдыха
                 <IconArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
               </div>
@@ -241,7 +252,7 @@ export default function About() {
 
             <Link
               to="/partnership"
-              className="group relative overflow-hidden rounded-3xl border border-white/15 bg-gradient-to-br from-ink-800 to-ink-900 p-10 transition hover:-translate-y-1"
+              className="group relative overflow-hidden rounded-3xl border border-white/15 bg-ink-900/45 backdrop-blur-xl p-10 transition hover:-translate-y-1"
             >
               <span className="chip">Для Партнеров</span>
               <h3 className="title-md mt-5">Партнерство и совместные предприятия</h3>
@@ -291,9 +302,14 @@ export default function About() {
           </button>
 
           <div className="w-full max-w-5xl" onClick={(e) => e.stopPropagation()}>
-            <AssetPlaceholder variant={GALLERY[lightbox].variant} className="aspect-[16/10]" />
+            <AssetPlaceholder
+              variant={GALLERY[lightbox].variant}
+              src={GALLERY[lightbox].src}
+              alt={GALLERY[lightbox].title}
+              className="aspect-[16/10]"
+            />
             <div className="mt-4 text-center">
-              <div className="text-[11px] uppercase tracking-[0.3em] text-moss-400">
+              <div className="text-[11px] uppercase tracking-[0.3em] text-sand-100/70">
                 {String(lightbox + 1).padStart(2, '0')} / {String(GALLERY.length).padStart(2, '0')}
               </div>
               <div className="mt-2 text-lg font-bold text-sand-50">{GALLERY[lightbox].title}</div>

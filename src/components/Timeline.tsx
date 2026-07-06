@@ -15,15 +15,15 @@ export default function Timeline({ steps }: { steps: Step[] }) {
             <span
               className={`grid h-12 w-12 flex-shrink-0 place-items-center rounded-full font-display text-sm font-bold ring-4 ring-ink-950 ${
                 s.status === 'current'
-                  ? 'bg-moss-500 text-ink-950 animate-pulseGlow'
+                  ? 'bg-white text-ink-950 animate-pulseGlow'
                   : s.status === 'next'
-                    ? 'bg-moss-500/20 text-moss-400 border border-moss-500/40'
+                    ? 'bg-white/15 text-sand-50 border border-white/40'
                     : 'bg-ink-800 text-sand-100/50 border border-white/10'
               }`}
             >
               0{i + 1}
             </span>
-            <div className="text-[11px] uppercase tracking-[0.25em] text-moss-400">
+            <div className="text-[11px] uppercase tracking-[0.25em] text-sand-100/70">
               {s.phase}
             </div>
           </div>
@@ -33,7 +33,7 @@ export default function Timeline({ steps }: { steps: Step[] }) {
             <div
               className={`mt-5 inline-flex rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.25em] ${
                 s.status === 'current'
-                  ? 'bg-moss-500/15 text-moss-400'
+                  ? 'bg-white/15 text-sand-50'
                   : s.status === 'next'
                     ? 'bg-amber-400/10 text-amber-300'
                     : 'bg-white/5 text-sand-100/45'

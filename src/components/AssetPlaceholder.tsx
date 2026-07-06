@@ -5,6 +5,9 @@ type Props = {
   className?: string;
   title?: string;
   badge?: string;
+  /** Реальное фото: если задано, рендерится вместо градиентной заглушки */
+  src?: string;
+  alt?: string;
 };
 
 const GRADIENTS: Record<Variant, string> = {
@@ -109,13 +112,29 @@ export default function AssetPlaceholder({
   className = '',
   title,
   badge,
+  src,
+  alt,
 }: Props) {
+  // `relative` по умолчанию; если снаружи передали `absolute` (hero-фоны),
+  // не добавляем relative — иначе он перебьёт позиционирование в CSS-порядке Tailwind
+  const position = className.includes('absolute') ? '' : 'relative';
   return (
-    <div className={`relative overflow-hidden rounded-3xl border border-white/10 ${className}`}>
-      <div className={`absolute inset-0 bg-gradient-to-br ${GRADIENTS[variant]}`} />
-      <svg viewBox="0 0 1000 625" className="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice">
-        {SCENES[variant]}
-      </svg>
+    <div className={`${position} overflow-hidden rounded-3xl border border-white/10 ${className}`}>
+      {src ? (
+        <img
+          src={src}
+          alt={alt || title || ''}
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      ) : (
+        <>
+          <div className={`absolute inset-0 bg-gradient-to-br ${GRADIENTS[variant]}`} />
+          <svg viewBox="0 0 1000 625" className="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice">
+            {SCENES[variant]}
+          </svg>
+        </>
+      )}
       <div className="absolute inset-0 bg-gradient-to-t from-ink-950/70 via-transparent to-transparent" />
       {badge && (
         <span className="absolute left-4 top-4 chip">{badge}</span>

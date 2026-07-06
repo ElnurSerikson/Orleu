@@ -6,6 +6,7 @@ import Carousel from '../components/Carousel';
 import AssetPlaceholder from '../components/AssetPlaceholder';
 import ContactBlock from '../components/ContactBlock';
 import VideoLightbox from '../components/VideoLightbox';
+import MapLightbox from '../components/MapLightbox';
 import {
   IconArrowRight,
   IconCalendar,
@@ -32,6 +33,8 @@ const WA_PARTNERS =
 
 export default function Home() {
   const [videoOpen, setVideoOpen] = useState(false);
+  const [mapOpen, setMapOpen] = useState(false);
+  const [photosOpen, setPhotosOpen] = useState(false);
 
   return (
     <>
@@ -50,11 +53,11 @@ export default function Home() {
             <span className="chip backdrop-blur">КФХ ORLEU · Жамбылская область</span>
             <h1 className="title-xl mt-6 text-balance drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)]">
               КФХ ORLEU: Территория отдыха и{' '}
-              <span className="bg-gradient-to-r from-moss-400 to-moss-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-white to-sand-200 bg-clip-text text-transparent">
                 деловых возможностей
               </span>
             </h1>
-            <div className="mt-6 font-display text-lg font-semibold uppercase tracking-[0.32em] text-moss-400">
+            <div className="mt-6 font-display text-lg font-semibold uppercase tracking-[0.32em] text-sand-50/90">
               Соединяясь с природой
             </div>
             <p className="lead mx-auto mt-6 max-w-2xl text-sand-50/85 drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]">
@@ -131,7 +134,7 @@ export default function Home() {
       </section>
 
       {/* 3. AUDIENCE SPLIT — слева Гости, справа Партнёры */}
-      <section className="section">
+      <section className="section section-solid">
         <div className="container-x">
           <SectionHeader
             eyebrow="Ваш путь в ORLEU"
@@ -143,9 +146,14 @@ export default function Home() {
             {/* Слева — для гостей */}
             <Link
               to="/guests"
-              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-ink-850/70 transition hover:border-moss-500/40"
+              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-ink-850/70 transition hover:border-white/35"
             >
-              <AssetPlaceholder variant="water" className="aspect-[16/10] rounded-none border-0" />
+              <AssetPlaceholder
+                variant="water"
+                src="/photos/p644.jpg"
+                alt="Водоём ORLEU"
+                className="aspect-[16/10] rounded-none border-0"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/40 to-transparent" />
               <div className="absolute inset-x-6 bottom-6 sm:inset-x-8 sm:bottom-8">
                 <span className="chip">Для гостей и отдыхающих</span>
@@ -156,7 +164,7 @@ export default function Home() {
                   Чистый воздух, богатый водоем и идеальные условия для
                   семейного отдыха и настоящей рыбалки.
                 </p>
-                <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-moss-400">
+                <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-sand-50">
                   Хочу на отдых <IconArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                 </div>
               </div>
@@ -165,9 +173,14 @@ export default function Home() {
             {/* Справа — для партнёров */}
             <Link
               to="/partnership"
-              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-ink-850/70 transition hover:border-moss-500/40"
+              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-ink-850/70 transition hover:border-white/35"
             >
-              <AssetPlaceholder variant="field" className="aspect-[16/10] rounded-none border-0" />
+              <AssetPlaceholder
+                variant="field"
+                src="/photos/dji-aerial.jpg"
+                alt="Аэросъёмка территории ORLEU"
+                className="aspect-[16/10] rounded-none border-0"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/40 to-transparent" />
               <div className="absolute inset-x-6 bottom-6 sm:inset-x-8 sm:bottom-8">
                 <span className="chip">Для партнеров и инвесторов</span>
@@ -178,7 +191,7 @@ export default function Home() {
                   Перспективная платформа для сельского хозяйства, рыбоводства и
                   экотуризма. Уникальные условия для масштабирования.
                 </p>
-                <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-moss-400">
+                <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-sand-50">
                   Стать партнером <IconArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                 </div>
               </div>
@@ -199,8 +212,13 @@ export default function Home() {
           <div className="mt-14 grid gap-5 lg:grid-cols-3">
             {/* Карточка 1 — Рыбалка и Рекреация */}
             <div className="card group relative flex flex-col overflow-hidden">
-              <div className="absolute -right-10 -top-10 h-44 w-44 rounded-full bg-moss-500/10 blur-3xl" />
-              <AssetPlaceholder variant="fish" className="aspect-[4/3] -mx-6 -mt-6 mb-6 rounded-none border-0 sm:-mx-8 sm:-mt-8" />
+              <div className="absolute -right-10 -top-10 h-44 w-44 rounded-full bg-white/10 blur-3xl" />
+              <AssetPlaceholder
+                variant="fish"
+                src="/photos/p643.jpg"
+                alt="Открытая вода водоёма ORLEU"
+                className="aspect-[4/3] -mx-6 -mt-6 mb-6 rounded-none border-0 sm:-mx-8 sm:-mt-8"
+              />
               <span className="chip self-start">Рыбалка и Рекреация</span>
               <h3 className="title-md mt-4">Трофейная рыбалка и кемпинг</h3>
               <p className="mt-3 text-sm leading-relaxed text-sand-100/70">
@@ -217,8 +235,13 @@ export default function Home() {
 
             {/* Карточка 2 — Мероприятия */}
             <div className="card group relative flex flex-col overflow-hidden">
-              <div className="absolute -right-10 -top-10 h-44 w-44 rounded-full bg-amber-400/10 blur-3xl" />
-              <AssetPlaceholder variant="tent" className="aspect-[4/3] -mx-6 -mt-6 mb-6 rounded-none border-0 sm:-mx-8 sm:-mt-8" />
+              <div className="absolute -right-10 -top-10 h-44 w-44 rounded-full bg-white/10 blur-3xl" />
+              <AssetPlaceholder
+                variant="tent"
+                src="/photos/p624.jpg"
+                alt="Пикниковая роща со столами"
+                className="aspect-[4/3] -mx-6 -mt-6 mb-6 rounded-none border-0 sm:-mx-8 sm:-mt-8"
+              />
               <span className="chip self-start">Мероприятия</span>
               <h3 className="title-md mt-4">Пространство для ваших событий</h3>
               <p className="mt-3 text-sm leading-relaxed text-sand-100/70">
@@ -232,8 +255,13 @@ export default function Home() {
 
             {/* Карточка 3 — Деловые возможности */}
             <div className="card group relative flex flex-col overflow-hidden">
-              <div className="absolute -right-10 -top-10 h-44 w-44 rounded-full bg-sky-400/10 blur-3xl" />
-              <AssetPlaceholder variant="aerial" className="aspect-[4/3] -mx-6 -mt-6 mb-6 rounded-none border-0 sm:-mx-8 sm:-mt-8" />
+              <div className="absolute -right-10 -top-10 h-44 w-44 rounded-full bg-white/10 blur-3xl" />
+              <AssetPlaceholder
+                variant="aerial"
+                src="/photos/p650.jpg"
+                alt="Поля ORLEU"
+                className="aspect-[4/3] -mx-6 -mt-6 mb-6 rounded-none border-0 sm:-mx-8 sm:-mt-8"
+              />
               <span className="chip self-start">Деловые возможности</span>
               <h3 className="title-md mt-4">Партнерство и бизнес-проекты</h3>
               <p className="mt-3 text-sm leading-relaxed text-sand-100/70">
@@ -249,7 +277,7 @@ export default function Home() {
       </section>
 
       {/* 5. GALLERY / Атмосфера ORLEU */}
-      <section className="section">
+      <section className="section section-solid">
         <div className="container-x">
           <SectionHeader
             eyebrow="Атмосфера ORLEU"
@@ -260,22 +288,19 @@ export default function Home() {
           <div className="mt-14">
             <Carousel
               slides={[
-                { src: '', title: 'Интерактивная карта', caption: 'Карта территории КФХ ORLEU.' },
-                { src: '', title: 'Вид с высоты', caption: 'Панорама водоёма и полей.' },
-                { src: '', title: 'Трофейный улов', caption: 'Сазан, карп, амур.' },
-                { src: '', title: 'Закат в ORLEU', caption: 'Тишина и красота природы.' },
-              ].map((s, i) => ({
-                ...s,
-                src: `data:image/svg+xml;utf8,${encodeURIComponent(
-                  `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'><rect width='16' height='9' fill='%230a1612'/></svg>`
-                )}`,
-                variant: ['aerial', 'water', 'tent', 'field', 'forest', 'sunset'][i % 6],
-              }))}
+                { src: '/photos/map-frame.jpg', title: 'Карта территории', caption: 'Схема водоёма и зон отдыха ORLEU.' },
+                { src: '/photos/dji-aerial.jpg', title: 'Вид с высоты', caption: 'Панорама водоёма и полей КФХ ORLEU.' },
+                { src: '/photos/p639.jpg', title: 'Водоём 25 га', caption: 'Проточное озеро с камышовыми берегами.' },
+                { src: '/photos/p624.jpg', title: 'Пикниковая роща', caption: 'Столы и костровые зоны в тени деревьев.' },
+                { src: '/photos/p660.jpg', title: 'Берег реки Аса', caption: 'Тишина и красота природы.' },
+              ]}
             />
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-              <button className="btn-ghost">Смотреть все фото</button>
-              <button className="btn-primary">
+              <button type="button" onClick={() => setPhotosOpen(true)} className="btn-ghost">
+                Смотреть все фото
+              </button>
+              <button type="button" onClick={() => setMapOpen(true)} className="btn-primary">
                 <IconSparkle className="h-4 w-4" /> Открыть карту территории
               </button>
             </div>
@@ -284,19 +309,19 @@ export default function Home() {
       </section>
 
       {/* mini-marquee with icons */}
-      <section className="border-y border-white/5 bg-ink-900/40 py-6">
+      <section className="py-6">
         <div className="container-x flex flex-wrap items-center justify-between gap-6 text-xs uppercase tracking-[0.3em] text-sand-100/45">
-          <span className="inline-flex items-center gap-2"><IconWaves className="h-4 w-4 text-moss-400" /> р. Аса</span>
-          <span className="inline-flex items-center gap-2"><IconLeaf className="h-4 w-4 text-moss-400" /> 230+ га земли</span>
-          <span className="inline-flex items-center gap-2"><IconFish className="h-4 w-4 text-moss-400" /> сазан · карп · амур</span>
-          <span className="inline-flex items-center gap-2"><IconTent className="h-4 w-4 text-moss-400" /> кемпинг 24/7</span>
-          <span className="inline-flex items-center gap-2"><IconRoute className="h-4 w-4 text-moss-400" /> 25 км от Тараза</span>
-          <span className="inline-flex items-center gap-2"><IconSeed className="h-4 w-4 text-moss-400" /> ОТРХ статус</span>
+          <span className="inline-flex items-center gap-2"><IconWaves className="h-4 w-4 text-sand-50/80" /> р. Аса</span>
+          <span className="inline-flex items-center gap-2"><IconLeaf className="h-4 w-4 text-sand-50/80" /> 230+ га земли</span>
+          <span className="inline-flex items-center gap-2"><IconFish className="h-4 w-4 text-sand-50/80" /> сазан · карп · амур</span>
+          <span className="inline-flex items-center gap-2"><IconTent className="h-4 w-4 text-sand-50/80" /> кемпинг 24/7</span>
+          <span className="inline-flex items-center gap-2"><IconRoute className="h-4 w-4 text-sand-50/80" /> 25 км от Тараза</span>
+          <span className="inline-flex items-center gap-2"><IconSeed className="h-4 w-4 text-sand-50/80" /> ОТРХ статус</span>
         </div>
       </section>
 
       {/* 6. WHAT INTERESTS YOU — WhatsApp CTA */}
-      <section className="section">
+      <section className="section section-solid">
         <div className="container-x">
           <SectionHeader
             eyebrow="Что вас интересует?"
@@ -309,15 +334,15 @@ export default function Home() {
               href={WA_GUESTS}
               target="_blank"
               rel="noreferrer"
-              className="group relative overflow-hidden rounded-3xl border border-moss-500/30 bg-gradient-to-br from-moss-500/15 via-ink-850 to-ink-900 p-8 transition hover:-translate-y-1 hover:border-moss-500/60"
+              className="group relative overflow-hidden rounded-3xl border border-white/25 bg-white/[0.07] p-8 backdrop-blur-xl transition hover:-translate-y-1 hover:border-white/50"
             >
-              <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-moss-500/20 blur-3xl" />
+              <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-white/15 blur-3xl" />
               <span className="chip">Для гостей</span>
               <h3 className="title-md mt-5">Планирую отдых</h3>
               <p className="mt-3 text-sm text-sand-100/70">
                 Узнать про отдых и рыбалку в ORLEU, забронировать место или инвентарь.
               </p>
-              <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-moss-400">
+              <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-sand-50">
                 Написать в WhatsApp
                 <IconArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
               </div>
@@ -327,7 +352,7 @@ export default function Home() {
               href={WA_PARTNERS}
               target="_blank"
               rel="noreferrer"
-              className="group relative overflow-hidden rounded-3xl border border-white/15 bg-gradient-to-br from-ink-800 to-ink-900 p-8 transition hover:-translate-y-1 hover:border-moss-500/40"
+              className="group relative overflow-hidden rounded-3xl border border-white/15 bg-ink-900/45 p-8 backdrop-blur-xl transition hover:-translate-y-1 hover:border-white/35"
             >
               <span className="chip">Для партнёров</span>
               <h3 className="title-md mt-5">Предложение по партнёрству</h3>
@@ -352,6 +377,38 @@ export default function Home() {
         videoUrl="https://www.youtube.com/watch?v=SW4hlTy8Hwg"
         title="Видео-обзор КФХ ORLEU"
       />
+
+      <MapLightbox open={mapOpen} onClose={() => setMapOpen(false)} />
+
+      {photosOpen && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-ink-950/85 p-4 backdrop-blur-md"
+          onClick={() => setPhotosOpen(false)}
+        >
+          <div className="relative w-full max-w-5xl" onClick={(e) => e.stopPropagation()}>
+            <button
+              type="button"
+              onClick={() => setPhotosOpen(false)}
+              aria-label="Закрыть"
+              className="absolute -top-12 right-0 grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-ink-900/80 text-sand-50 transition hover:bg-ink-800"
+            >
+              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M6 6l12 12M18 6 6 18" />
+              </svg>
+            </button>
+            <Carousel
+              slides={[
+                { src: '/photos/dji-aerial.jpg', title: 'Вид с высоты', caption: 'Панорама водоёма и полей.' },
+                { src: '/photos/p639.jpg', title: 'Водоём 25 га' },
+                { src: '/photos/p624.jpg', title: 'Пикниковая роща' },
+                { src: '/photos/p646.jpg', title: 'Берег для рыбалки' },
+                { src: '/photos/p635.jpg', title: 'Русло реки Аса' },
+                { src: '/photos/p660.jpg', title: 'Вечер на берегу' },
+              ]}
+            />
+          </div>
+        </div>
+      )}
     </>
   );
 }

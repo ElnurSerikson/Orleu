@@ -10,7 +10,7 @@ type Props = { rows: Row[]; footnote?: string };
 
 export default function PriceTable({ rows, footnote }: Props) {
   return (
-    <div className="overflow-hidden rounded-3xl border border-white/10 bg-ink-850/60 backdrop-blur">
+    <div className="overflow-hidden rounded-3xl border border-white/15 bg-ink-900/45 backdrop-blur-xl">
       <div className="hidden grid-cols-4 border-b border-white/10 bg-ink-900/70 px-6 py-4 text-[11px] uppercase tracking-[0.2em] text-sand-100/50 sm:grid">
         <div>Категория</div>
         <div>Дневной 09:00–21:00</div>
@@ -22,13 +22,13 @@ export default function PriceTable({ rows, footnote }: Props) {
           <li
             key={r.category}
             className={`grid grid-cols-1 gap-2 px-6 py-5 sm:grid-cols-4 sm:items-center sm:gap-4 ${
-              r.highlight ? 'bg-moss-500/[0.06]' : ''
+              r.highlight ? 'bg-white/[0.06]' : ''
             }`}
           >
             <div>
               <div className="text-sm font-semibold text-sand-50">{r.category}</div>
               {r.highlight && (
-                <span className="mt-1 inline-block rounded-full bg-moss-500/15 px-2 py-0.5 text-[10px] uppercase tracking-wider text-moss-400">
+                <span className="mt-1 inline-block rounded-full bg-white/15 px-2 py-0.5 text-[10px] uppercase tracking-wider text-sand-50">
                   Бесплатно
                 </span>
               )}
@@ -41,7 +41,7 @@ export default function PriceTable({ rows, footnote }: Props) {
               <span className="sm:hidden text-sand-100/40">Ночной: </span>
               {r.night}
             </div>
-            <div className="text-base font-bold text-moss-400">
+            <div className="text-base font-bold text-sand-50">
               <span className="sm:hidden text-sand-100/40 font-normal text-sm">Суточный: </span>
               {r.full}
             </div>

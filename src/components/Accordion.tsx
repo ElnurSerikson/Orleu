@@ -7,7 +7,7 @@ export default function Accordion({ items }: { items: Item[] }) {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <div className="divide-y divide-white/10 overflow-hidden rounded-3xl border border-white/10 bg-ink-850/60">
+    <div className="divide-y divide-white/10 overflow-hidden rounded-3xl border border-white/15 bg-ink-900/45 backdrop-blur-xl">
       {items.map((item, idx) => {
         const isOpen = open === idx;
         return (
@@ -20,7 +20,7 @@ export default function Accordion({ items }: { items: Item[] }) {
               <span
                 className={`mt-1 grid h-8 w-8 flex-shrink-0 place-items-center rounded-full border transition ${
                   isOpen
-                    ? 'border-moss-500/40 bg-moss-500 text-ink-950 rotate-45'
+                    ? 'border-white/40 bg-white text-ink-950 rotate-45'
                     : 'border-white/15 text-sand-50'
                 }`}
               >
