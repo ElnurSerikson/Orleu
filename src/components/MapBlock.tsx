@@ -12,8 +12,8 @@ type Props = {
 };
 
 export default function MapBlock({
-  videoLabel = 'Видео-инструкция: как доехать и где встать',
-  caption = 'Листайте карту стрелками или нажмите, чтобы раскрыть на весь экран.',
+  videoLabel = 'Видео-обзор территории',
+  caption = 'Тяните карту мышью или листайте стрелками.',
   onVideoClick,
   extraActions,
   fullSrc = '/photos/map-full.jpg',
@@ -21,8 +21,12 @@ export default function MapBlock({
   const [mapOpen, setMapOpen] = useState(false);
   const [atStart, setAtStart] = useState(false);
   const [atEnd, setAtEnd] = useState(false);
+  const [dragging, setDragging] = useState(false);
   const scrollerRef = useRef<HTMLDivElement>(null);
   const imgRef = useRef<HTMLImageElement>(null);
+  const animRef = useRef<number>();
+  // Состояние перетаскивания мышью
+  const drag = useRef({ active: false, startX: 0, startScroll: 0, moved: false });
 
   const updateEdges = useCallback(() => {
     const el = scrollerRef.current;
@@ -31,7 +35,7 @@ export default function MapBlock({
     setAtEnd(el.scrollLeft + el.clientWidth >= el.scrollWidth - 4);
   }, []);
 
-  // Стартуем с центра панорамы, чтобы можно было листать в обе стороны
+  const centeredOnce = useRef(false);
   const centerScroll = useCallback(() => {
     const el = scrollerRef.current;
     if (!el) return;
@@ -40,36 +44,108 @@ export default function MapBlock({
   }, [updateEdges]);
 
   useEffect(() => {
-    // Если картинка уже в кеше, onLoad не сработает — центруем сразу
-    if (imgRef.current?.complete) centerScroll();
     window.addEventListener('resize', updateEdges);
-    return () => window.removeEventListener('resize', updateEdges);
+    const el = scrollerRef.current;
+    const img = imgRef.current;
+    let io: IntersectionObserver | undefined;
+
+    const doCenter = () => {
+      if (centeredOnce.current || !el) return;
+      if (el.scrollWidth > el.clientWidth + 4) {
+        centeredOnce.current = true;
+        centerScroll();
+      }
+    };
+    // Центруем только после полного декодирования панорамы — иначе браузер
+    // сбрасывает scrollLeft, когда тяжёлая картинка дорисовывается
+    const centerWhenReady = () => {
+      if (!img || centeredOnce.current) return;
+      const p = img.decode ? img.decode() : Promise.reject();
+      p.then(() => requestAnimationFrame(doCenter)).catch(() => {
+        if (img.complete) requestAnimationFrame(doCenter);
+        else img.addEventListener('load', () => requestAnimationFrame(doCenter), { once: true });
+      });
+    };
+
+    if (el) {
+      io = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((e) => e.isIntersecting)) centerWhenReady();
+        },
+        { threshold: 0.1 }
+      );
+      io.observe(el);
+    }
+    return () => {
+      window.removeEventListener('resize', updateEdges);
+      io?.disconnect();
+      if (animRef.current) cancelAnimationFrame(animRef.current);
+    };
   }, [centerScroll, updateEdges]);
 
   const scrollByDir = (dir: -1 | 1) => {
     const el = scrollerRef.current;
     if (!el) return;
+    if (animRef.current) cancelAnimationFrame(animRef.current);
     const start = el.scrollLeft;
     const target = Math.max(
       0,
       Math.min(start + dir * el.clientWidth * 0.7, el.scrollWidth - el.clientWidth)
     );
-    el.scrollTo({ left: target, behavior: 'smooth' });
-    // Фолбэк: если плавная анимация не стартовала (reduced-motion,
-    // фоновая вкладка, старый браузер) — переходим мгновенно
-    window.setTimeout(() => {
-      if (Math.abs(el.scrollLeft - start) < 2) el.scrollLeft = target;
-    }, 150);
+    const duration = 450;
+    const t0 = performance.now();
+    const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+    const step = (now: number) => {
+      const p = Math.min(1, (now - t0) / duration);
+      el.scrollLeft = start + (target - start) * easeOutCubic(p);
+      if (p < 1) animRef.current = requestAnimationFrame(step);
+    };
+    animRef.current = requestAnimationFrame(step);
+  };
+
+  // Перетаскивание мышью (drag-to-pan)
+  const onPointerDown = (e: React.PointerEvent) => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    if (animRef.current) cancelAnimationFrame(animRef.current);
+    drag.current = { active: true, startX: e.clientX, startScroll: el.scrollLeft, moved: false };
+    setDragging(true);
+    try {
+      el.setPointerCapture(e.pointerId);
+    } catch {
+      /* синтетические/недоступные указатели игнорируем */
+    }
+  };
+
+  const onPointerMove = (e: React.PointerEvent) => {
+    const el = scrollerRef.current;
+    if (!el || !drag.current.active) return;
+    const dx = e.clientX - drag.current.startX;
+    if (Math.abs(dx) > 3) drag.current.moved = true;
+    el.scrollLeft = drag.current.startScroll - dx;
+  };
+
+  const endDrag = (e: React.PointerEvent) => {
+    const el = scrollerRef.current;
+    if (el?.hasPointerCapture(e.pointerId)) el.releasePointerCapture(e.pointerId);
+    drag.current.active = false;
+    setDragging(false);
   };
 
   return (
     <>
-      <div className="group relative aspect-[16/10] w-full overflow-hidden rounded-3xl border border-white/10 bg-ink-900">
-        {/* Панорама, листаемая прямо в секции */}
+      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-3xl border border-white/10 bg-ink-900">
+        {/* Панорама: тянется мышью (drag-to-pan) и листается стрелками */}
         <div
           ref={scrollerRef}
           onScroll={updateEdges}
-          className="scrollbar-none absolute inset-0 overflow-x-auto overflow-y-hidden"
+          onPointerDown={onPointerDown}
+          onPointerMove={onPointerMove}
+          onPointerUp={endDrag}
+          onPointerCancel={endDrag}
+          className={`scrollbar-none absolute inset-0 select-none overflow-x-auto overflow-y-hidden ${
+            dragging ? 'cursor-grabbing' : 'cursor-grab'
+          }`}
         >
           <img
             ref={imgRef}
@@ -77,25 +153,19 @@ export default function MapBlock({
             alt="Карта территории КФХ ӨRLEU"
             loading="lazy"
             draggable={false}
-            onLoad={centerScroll}
-            onClick={() => setMapOpen(true)}
-            className="h-full w-auto max-w-none cursor-zoom-in select-none"
+            className="pointer-events-none h-full w-auto max-w-none select-none"
           />
         </div>
 
-        {/* Боковые затемнения — намёк, что карта продолжается */}
-        <div
-          className={`pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-ink-950/65 to-transparent transition-opacity duration-300 ${
-            atStart ? 'opacity-0' : 'opacity-100'
-          }`}
-        />
-        <div
-          className={`pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-ink-950/65 to-transparent transition-opacity duration-300 ${
-            atEnd ? 'opacity-0' : 'opacity-100'
-          }`}
-        />
+        {/* Плашка-подпись */}
+        <div className="pointer-events-none absolute left-5 top-5 rounded-2xl border border-white/10 bg-ink-950/70 px-4 py-2.5 backdrop-blur">
+          <div className="text-[11px] uppercase tracking-[0.2em] text-sand-100/60">
+            Карта территории
+          </div>
+          <div className="mt-0.5 text-sm text-sand-50">{caption}</div>
+        </div>
 
-        {/* Большие стрелки прокрутки по центру высоты */}
+        {/* Стрелки прокрутки по центру высоты */}
         <button
           type="button"
           onClick={() => scrollByDir(-1)}
@@ -120,34 +190,28 @@ export default function MapBlock({
             <path d="M9 6l6 6-6 6" />
           </svg>
         </button>
+      </div>
 
-        {/* Подсказка при наведении */}
-        <span className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/25 bg-ink-950/65 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-sand-50 opacity-0 backdrop-blur-md transition duration-300 group-hover:opacity-100">
-          Нажмите, чтобы раскрыть
-        </span>
-
-        <div className="pointer-events-none absolute inset-x-5 bottom-5 flex flex-col items-start gap-3 sm:flex-row sm:items-end sm:justify-between">
-          <div className="pointer-events-auto rounded-2xl border border-white/10 bg-ink-950/75 px-4 py-3 backdrop-blur">
-            <div className="text-[11px] uppercase tracking-[0.2em] text-sand-100/60">
-              Карта территории
-            </div>
-            <div className="mt-1 text-sm text-sand-50">{caption}</div>
-          </div>
-          <div className="pointer-events-auto flex flex-wrap gap-2">
-            {extraActions}
-            <button
-              type="button"
-              className="btn-primary"
-              onClick={() =>
-                onVideoClick
-                  ? onVideoClick()
-                  : alert('Видео-обзор откроется во всплывающем окне.')
-              }
-            >
-              <IconPlay className="h-4 w-4" /> {videoLabel}
-            </button>
-          </div>
-        </div>
+      {/* Кнопки под холстом */}
+      <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
+        <button type="button" className="btn-primary" onClick={() => setMapOpen(true)}>
+          <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+          </svg>
+          Открыть полностью
+        </button>
+        <button
+          type="button"
+          className="btn-ghost"
+          onClick={() =>
+            onVideoClick
+              ? onVideoClick()
+              : alert('Видео-обзор откроется во всплывающем окне.')
+          }
+        >
+          <IconPlay className="h-4 w-4" /> {videoLabel}
+        </button>
+        {extraActions}
       </div>
 
       <MapLightbox open={mapOpen} onClose={() => setMapOpen(false)} src={fullSrc} />

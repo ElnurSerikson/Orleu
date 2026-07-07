@@ -301,7 +301,7 @@ export default function Home() {
           />
           <div className="mt-12">
             <MapBlock
-              caption="Листайте карту стрелками, по клику — полноэкранный просмотр."
+              caption="Тяните карту мышью или листайте стрелками."
               videoLabel="Видео-обзор территории"
               onVideoClick={() => setVideoOpen(true)}
             />

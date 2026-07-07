@@ -138,7 +138,7 @@ export default function Guests() {
           />
           <div className="mt-12">
             <MapBlock
-              caption="Листайте карту стрелками, по клику — полноэкранный просмотр."
+              caption="Тяните карту мышью или листайте стрелками."
               videoLabel="Посмотреть видео всей территории отдыха"
               onVideoClick={() => setVideoOpen(true)}
               extraActions={
