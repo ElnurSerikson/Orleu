@@ -224,7 +224,7 @@ export default function Guests() {
                 key={r.title}
                 className={`card flex flex-col gap-4 ${
                   i === 4
-                    ? 'sm:col-span-2 lg:col-span-4 lg:flex-row lg:items-center lg:gap-6'
+                    ? 'sm:col-span-2 lg:col-span-4'
                     : 'lg:col-span-2'
                 }`}
               >
