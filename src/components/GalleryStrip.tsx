@@ -42,10 +42,13 @@ export default function GalleryStrip({ photos, onTileClick }: Props) {
 
   return (
     <div className="relative">
+      {/* Маска: полностью видимые фото — со скруглёнными углами,
+          выглядывающие за край обрезаются ровной вертикальной линией */}
+      <div className="overflow-hidden rounded-3xl">
       <div
         ref={scrollerRef}
         onScroll={updateEdges}
-        className="scrollbar-none flex snap-x snap-mandatory gap-5 overflow-x-auto pb-1"
+        className="scrollbar-none flex snap-x snap-mandatory gap-5 overflow-x-auto"
       >
         {photos.map((p, i) => (
           <button
@@ -74,18 +77,7 @@ export default function GalleryStrip({ photos, onTileClick }: Props) {
           </button>
         ))}
       </div>
-
-      {/* Боковые затемнения-намёки */}
-      <div
-        className={`pointer-events-none absolute inset-y-0 left-0 w-14 rounded-l-3xl bg-gradient-to-r from-ink-950/70 to-transparent transition-opacity duration-300 ${
-          atStart ? 'opacity-0' : 'opacity-100'
-        }`}
-      />
-      <div
-        className={`pointer-events-none absolute inset-y-0 right-0 w-14 rounded-r-3xl bg-gradient-to-l from-ink-950/70 to-transparent transition-opacity duration-300 ${
-          atEnd ? 'opacity-0' : 'opacity-100'
-        }`}
-      />
+      </div>
 
       {/* Большие стрелки по центру высоты */}
       <button
