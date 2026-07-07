@@ -85,7 +85,7 @@ export default function ContactBlock({
                 href="https://www.instagram.com/orleu8.kz/"
                 target="_blank"
                 rel="noreferrer"
-                className="btn-ghost text-xs"
+                className="btn-ghost gap-1.5 px-3 py-2 text-[11px] whitespace-nowrap"
               >
                 <IconInstagram className="h-4 w-4 shrink-0" /> Instagram
               </a>
@@ -93,7 +93,7 @@ export default function ContactBlock({
                 href="https://www.tiktok.com/@orleu8.kz"
                 target="_blank"
                 rel="noreferrer"
-                className="btn-ghost text-xs"
+                className="btn-ghost gap-1.5 px-3 py-2 text-[11px] whitespace-nowrap"
               >
                 <IconTikTok className="h-4 w-4 shrink-0" /> TikTok
               </a>
@@ -101,7 +101,7 @@ export default function ContactBlock({
                 href="https://www.youtube.com/watch?v=SW4hlTy8Hwg"
                 target="_blank"
                 rel="noreferrer"
-                className="btn-ghost text-xs"
+                className="btn-ghost gap-1.5 px-3 py-2 text-[11px] whitespace-nowrap"
               >
                 <IconYoutube className="h-4 w-4 shrink-0" /> YouTube
               </a>
@@ -203,7 +203,7 @@ export default function ContactBlock({
                 href="https://yandex.kz/maps/?pt=71.037408,43.028010&z=15&l=map"
                 target="_blank"
                 rel="noreferrer"
-                className="btn-ghost text-xs"
+                className="btn-ghost gap-1.5 px-3 py-2 text-[11px] whitespace-nowrap"
               >
                 <IconRoute className="h-4 w-4" /> Яндекс
               </a>
@@ -211,7 +211,7 @@ export default function ContactBlock({
                 href="https://www.google.com/maps/search/?api=1&query=43.028010,71.037408"
                 target="_blank"
                 rel="noreferrer"
-                className="btn-ghost text-xs"
+                className="btn-ghost gap-1.5 px-3 py-2 text-[11px] whitespace-nowrap"
               >
                 <IconRoute className="h-4 w-4" /> Google
               </a>
@@ -219,7 +219,7 @@ export default function ContactBlock({
                 href="https://2gis.kz/taraz/firm/70000001115446239"
                 target="_blank"
                 rel="noreferrer"
-                className="btn-ghost text-xs"
+                className="btn-ghost gap-1.5 px-3 py-2 text-[11px] whitespace-nowrap"
               >
                 <IconRoute className="h-4 w-4" /> 2ГИС
               </a>
