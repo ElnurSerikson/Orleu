@@ -21,7 +21,6 @@ import {
   IconUsers,
   IconWaves,
   IconTent,
-  IconSparkle,
 } from '../components/Icon';
 
 const WA_GUESTS =
@@ -288,12 +287,6 @@ export default function Home() {
 
           <div className="mt-14">
             <GalleryStrip photos={PHOTOS} onTileClick={(i) => setLightboxIndex(i)} />
-
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-              <button type="button" onClick={() => setLightboxIndex(0)} className="btn-primary">
-                <IconSparkle className="h-4 w-4" /> Смотреть все фото
-              </button>
-            </div>
           </div>
         </div>
       </section>
