@@ -5,7 +5,7 @@ import SectionHeader from '../components/SectionHeader';
 import AssetPlaceholder from '../components/AssetPlaceholder';
 import ContactBlock from '../components/ContactBlock';
 import VideoLightbox from '../components/VideoLightbox';
-import GalleryModal from '../components/GalleryModal';
+import PhotoLightbox from '../components/PhotoLightbox';
 import { PHOTOS } from '../data/photos';
 import {
   IconFish,
@@ -277,12 +277,13 @@ export default function Guests() {
         title="Видео-обзор всей территории отдыха ORLEU"
       />
 
-      <GalleryModal
-        open={photosOpen}
-        onClose={() => setPhotosOpen(false)}
-        photos={PHOTOS}
-        title="Фото территории отдыха"
-      />
+      {photosOpen && (
+        <PhotoLightbox
+          photos={PHOTOS}
+          startIndex={0}
+          onClose={() => setPhotosOpen(false)}
+        />
+      )}
     </>
   );
 }

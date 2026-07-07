@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import SectionHeader from '../components/SectionHeader';
 import StatCard from '../components/StatCard';
 import GalleryStrip from '../components/GalleryStrip';
-import GalleryModal from '../components/GalleryModal';
+import PhotoLightbox from '../components/PhotoLightbox';
+import MapBlock from '../components/MapBlock';
 import { PHOTOS } from '../data/photos';
 import AssetPlaceholder from '../components/AssetPlaceholder';
 import ContactBlock from '../components/ContactBlock';
 import VideoLightbox from '../components/VideoLightbox';
-import MapLightbox from '../components/MapLightbox';
 import {
   IconArrowRight,
   IconCalendar,
@@ -35,8 +35,7 @@ const WA_PARTNERS =
 
 export default function Home() {
   const [videoOpen, setVideoOpen] = useState(false);
-  const [mapOpen, setMapOpen] = useState(false);
-  const [photosOpen, setPhotosOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   return (
     <>
@@ -284,28 +283,35 @@ export default function Home() {
           <SectionHeader
             eyebrow="Атмосфера ORLEU"
             title="Убедитесь сами: ORLEU в объективе"
-            subtitle="Лучшие кадры нашего хозяйства и карта территории для вашего удобства."
+            subtitle="Лучшие кадры нашего хозяйства — листайте ленту и открывайте фото на весь экран."
           />
 
           <div className="mt-14">
-            <GalleryStrip
-              photos={PHOTOS}
-              onTileClick={() => setPhotosOpen(true)}
-              lead={{
-                src: '/photos/map-frame.jpg',
-                label: 'Схема водоёма и зон отдыха',
-                onClick: () => setMapOpen(true),
-              }}
-            />
+            <GalleryStrip photos={PHOTOS} onTileClick={(i) => setLightboxIndex(i)} />
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-              <button type="button" onClick={() => setPhotosOpen(true)} className="btn-primary">
-                Смотреть все фото
-              </button>
-              <button type="button" onClick={() => setMapOpen(true)} className="btn-ghost">
-                <IconSparkle className="h-4 w-4" /> Открыть карту территории
+              <button type="button" onClick={() => setLightboxIndex(0)} className="btn-primary">
+                <IconSparkle className="h-4 w-4" /> Смотреть все фото
               </button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5.1 КАРТА ТЕРРИТОРИИ */}
+      <section className="section">
+        <div className="container-x">
+          <SectionHeader
+            eyebrow="Карта территории"
+            title="Схема водоёма и зон отдыха"
+            subtitle="Листайте карту стрелками или разверните на весь экран, чтобы изучить каждую зону."
+          />
+          <div className="mt-12">
+            <MapBlock
+              caption="Листайте карту стрелками, по клику — полноэкранный просмотр."
+              videoLabel="Видео-обзор территории"
+              onVideoClick={() => setVideoOpen(true)}
+            />
           </div>
         </div>
       </section>
@@ -380,14 +386,13 @@ export default function Home() {
         title="Видео-обзор КФХ ORLEU"
       />
 
-      <MapLightbox open={mapOpen} onClose={() => setMapOpen(false)} />
-
-      <GalleryModal
-        open={photosOpen}
-        onClose={() => setPhotosOpen(false)}
-        photos={PHOTOS}
-        title="Атмосфера ORLEU: все фото"
-      />
+      {lightboxIndex !== null && (
+        <PhotoLightbox
+          photos={PHOTOS}
+          startIndex={lightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+        />
+      )}
     </>
   );
 }

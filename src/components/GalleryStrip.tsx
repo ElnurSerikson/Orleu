@@ -1,22 +1,14 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { Photo } from '../data/photos';
 
-type LeadTile = {
-  src: string;
-  label: string;
-  onClick: () => void;
-};
-
 type Props = {
   photos: Photo[];
-  /** Клик по фото-плитке (например, открыть модалку-сетку) */
-  onTileClick: () => void;
-  /** Особая первая плитка (карта территории) со своим действием */
-  lead?: LeadTile;
+  /** Клик по фото — открыть полноэкранный просмотр с этого кадра */
+  onTileClick: (index: number) => void;
 };
 
-/** Горизонтальная лента фотографий со снапом, большими стрелками и свайпом */
-export default function GalleryStrip({ photos, onTileClick, lead }: Props) {
+/** Горизонтальная лента крупных фотографий со снапом, большими стрелками и свайпом */
+export default function GalleryStrip({ photos, onTileClick }: Props) {
   const [atStart, setAtStart] = useState(true);
   const [atEnd, setAtEnd] = useState(false);
   const scrollerRef = useRef<HTMLDivElement>(null);
@@ -48,39 +40,20 @@ export default function GalleryStrip({ photos, onTileClick, lead }: Props) {
     }, 150);
   };
 
-  const tileClass =
-    'group/tile relative aspect-[4/3] w-[78%] flex-shrink-0 snap-start overflow-hidden rounded-3xl border border-white/10 text-left transition hover:border-white/35 sm:w-[46%] lg:w-[38%]';
-
   return (
     <div className="relative">
       <div
         ref={scrollerRef}
         onScroll={updateEdges}
-        className="scrollbar-none flex snap-x snap-mandatory gap-4 overflow-x-auto pb-1"
+        className="scrollbar-none flex snap-x snap-mandatory gap-5 overflow-x-auto pb-1"
       >
-        {lead && (
-          <button type="button" onClick={lead.onClick} className={tileClass}>
-            <img
-              src={lead.src}
-              alt={lead.label}
-              loading="lazy"
-              className="h-full w-full object-cover transition duration-700 group-hover/tile:scale-[1.04]"
-            />
-            <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950/80 via-ink-950/10 to-transparent" />
-            <span className="chip absolute left-4 top-4">Карта территории</span>
-            <span className="absolute inset-x-5 bottom-4 flex items-center justify-between gap-2">
-              <span className="text-base font-semibold text-sand-50 drop-shadow">{lead.label}</span>
-              <span className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-full border border-white/25 bg-ink-950/60 text-sand-50 backdrop-blur">
-                <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
-                </svg>
-              </span>
-            </span>
-          </button>
-        )}
-
-        {photos.map((p) => (
-          <button key={p.src} type="button" onClick={onTileClick} className={tileClass}>
+        {photos.map((p, i) => (
+          <button
+            key={p.src}
+            type="button"
+            onClick={() => onTileClick(i)}
+            className="group/tile relative aspect-[16/10] w-[86%] flex-shrink-0 snap-start overflow-hidden rounded-3xl border border-white/10 text-left transition hover:border-white/35 sm:w-[70%] lg:w-[62%]"
+          >
             <img
               src={p.src}
               alt={p.title}
@@ -88,8 +61,15 @@ export default function GalleryStrip({ photos, onTileClick, lead }: Props) {
               className="h-full w-full object-cover transition duration-700 group-hover/tile:scale-[1.04]"
             />
             <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950/75 via-transparent to-transparent" />
-            <span className="absolute inset-x-5 bottom-4 text-base font-semibold text-sand-50 drop-shadow">
-              {p.title}
+            <span className="absolute inset-x-6 bottom-5 flex items-center justify-between gap-3">
+              <span className="text-lg font-semibold text-sand-50 drop-shadow sm:text-xl">
+                {p.title}
+              </span>
+              <span className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-full border border-white/25 bg-ink-950/60 text-sand-50 opacity-0 backdrop-blur transition group-hover/tile:opacity-100">
+                <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                </svg>
+              </span>
             </span>
           </button>
         ))}
