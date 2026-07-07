@@ -5,6 +5,7 @@ import {
   IconPin,
   IconInstagram,
   IconTikTok,
+  IconYoutube,
   IconRoute,
 } from './Icon';
 
@@ -79,14 +80,14 @@ export default function ContactBlock({
               </li>
             </ul>
 
-            <div className="mt-6 flex flex-wrap gap-2">
+            <div className="mt-6 grid gap-2 sm:grid-cols-3">
               <a
                 href="https://www.instagram.com/orleu8.kz/"
                 target="_blank"
                 rel="noreferrer"
                 className="btn-ghost text-xs"
               >
-                <IconInstagram className="h-4 w-4" /> Instagram
+                <IconInstagram className="h-4 w-4 shrink-0" /> Instagram
               </a>
               <a
                 href="https://www.tiktok.com/@orleu8.kz"
@@ -94,7 +95,7 @@ export default function ContactBlock({
                 rel="noreferrer"
                 className="btn-ghost text-xs"
               >
-                <IconTikTok className="h-4 w-4" /> TikTok
+                <IconTikTok className="h-4 w-4 shrink-0" /> TikTok
               </a>
               <a
                 href="https://www.youtube.com/watch?v=SW4hlTy8Hwg"
@@ -102,10 +103,7 @@ export default function ContactBlock({
                 rel="noreferrer"
                 className="btn-ghost text-xs"
               >
-                <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor">
-                  <path d="M23 7.5a3 3 0 0 0-2-2.1C19.1 5 12 5 12 5s-7.1 0-9 .4a3 3 0 0 0-2 2.1A31 31 0 0 0 .7 12 31 31 0 0 0 1 16.5a3 3 0 0 0 2 2.1c1.9.4 9 .4 9 .4s7.1 0 9-.4a3 3 0 0 0 2-2.1 31 31 0 0 0 .3-4.5 31 31 0 0 0-.3-4.5ZM9.7 15.5v-7l6 3.5-6 3.5Z" />
-                </svg>
-                YouTube
+                <IconYoutube className="h-4 w-4 shrink-0" /> YouTube
               </a>
             </div>
           </div>
