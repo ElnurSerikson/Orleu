@@ -225,12 +225,11 @@ export default function Home() {
                 Наш 25-гектарный водоем — рай для рыболовов и любителей отдыха с
                 палатками. Тишина, комфорт и восстановление.
               </p>
-              <Link
-                to="/guests"
-                className="btn-primary mt-auto w-full"
-              >
-                Забронировать отдых <IconArrowRight className="h-4 w-4" />
-              </Link>
+              <div className="mt-auto pt-6">
+                <Link to="/guests" className="btn-primary w-full">
+                  Забронировать отдых <IconArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
             </div>
 
             {/* Карточка 2 — Мероприятия */}
@@ -248,9 +247,11 @@ export default function Home() {
                 Просторная территория для проведения корпоративов, тимбилдингов,
                 семейных праздников и фестивалей на свежем воздухе под открытым небом.
               </p>
-              <a href={WA_GUESTS} target="_blank" rel="noreferrer" className="btn-primary mt-auto w-full">
-                Обсудить событие <IconArrowRight className="h-4 w-4" />
-              </a>
+              <div className="mt-auto pt-6">
+                <a href={WA_GUESTS} target="_blank" rel="noreferrer" className="btn-primary w-full">
+                  Обсудить событие <IconArrowRight className="h-4 w-4" />
+                </a>
+              </div>
             </div>
 
             {/* Карточка 3 — Деловые возможности */}
@@ -268,9 +269,11 @@ export default function Home() {
                 ORLEU открыт для бизнеса. Аренда зон под услуги, совместное
                 производство и развитие инфраструктуры на взаимовыгодных условиях.
               </p>
-              <Link to="/partnership" className="btn-primary mt-auto w-full">
-                Стать партнером <IconArrowRight className="h-4 w-4" />
-              </Link>
+              <div className="mt-auto pt-6">
+                <Link to="/partnership" className="btn-primary w-full">
+                  Стать партнером <IconArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
