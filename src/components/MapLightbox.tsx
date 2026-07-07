@@ -9,8 +9,7 @@ type Props = {
 
 /**
  * Полноэкранный просмотр карты территории.
- * Карта — сверхширокая панорама (~7:1), поэтому показываем её
- * во всю высоту экрана с горизонтальной прокруткой.
+ * Вся панорама вписывается в экран целиком (object-contain), без прокрутки.
  */
 export default function MapLightbox({
   open,
@@ -23,10 +22,11 @@ export default function MapLightbox({
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
     };
+    const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     window.addEventListener('keydown', onKey);
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = prevOverflow;
       window.removeEventListener('keydown', onKey);
     };
   }, [open, onClose]);
@@ -34,8 +34,14 @@ export default function MapLightbox({
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex flex-col bg-ink-950/95 backdrop-blur-md">
-      <div className="flex items-center justify-between gap-4 px-5 py-4 sm:px-8">
+    <div
+      className="fixed inset-0 z-[100] flex flex-col bg-ink-950/95 backdrop-blur-md"
+      onClick={onClose}
+    >
+      <div
+        className="flex items-center justify-between gap-4 px-5 py-4 sm:px-8"
+        onClick={(e) => e.stopPropagation()}
+      >
         <div>
           <div className="text-[11px] uppercase tracking-[0.3em] text-sand-100/60">
             Карта территории
@@ -54,17 +60,14 @@ export default function MapLightbox({
         </button>
       </div>
 
-      <div className="min-h-0 flex-1 overflow-x-auto overflow-y-hidden overscroll-contain">
+      <div className="flex min-h-0 flex-1 items-center justify-center px-4 pb-6 sm:px-8">
         <img
           src={src}
           alt={title}
           draggable={false}
-          className="h-full w-auto max-w-none select-none"
+          onClick={(e) => e.stopPropagation()}
+          className="max-h-full max-w-full select-none rounded-xl object-contain"
         />
-      </div>
-
-      <div className="px-5 py-3 text-center text-[11px] uppercase tracking-[0.3em] text-sand-100/50">
-        ← листайте карту в стороны →
       </div>
     </div>
   );
