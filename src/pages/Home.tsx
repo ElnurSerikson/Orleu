@@ -227,7 +227,7 @@ export default function Home() {
               </p>
               <Link
                 to="/guests"
-                className="btn-primary mt-6 self-start"
+                className="btn-primary mt-auto w-full"
               >
                 Забронировать отдых <IconArrowRight className="h-4 w-4" />
               </Link>
@@ -248,7 +248,7 @@ export default function Home() {
                 Просторная территория для проведения корпоративов, тимбилдингов,
                 семейных праздников и фестивалей на свежем воздухе под открытым небом.
               </p>
-              <a href={WA_GUESTS} target="_blank" rel="noreferrer" className="btn-primary mt-6 self-start">
+              <a href={WA_GUESTS} target="_blank" rel="noreferrer" className="btn-primary mt-auto w-full">
                 Обсудить событие <IconArrowRight className="h-4 w-4" />
               </a>
             </div>
@@ -268,7 +268,7 @@ export default function Home() {
                 ORLEU открыт для бизнеса. Аренда зон под услуги, совместное
                 производство и развитие инфраструктуры на взаимовыгодных условиях.
               </p>
-              <Link to="/partnership" className="btn-primary mt-6 self-start">
+              <Link to="/partnership" className="btn-primary mt-auto w-full">
                 Стать партнером <IconArrowRight className="h-4 w-4" />
               </Link>
             </div>
