@@ -11,7 +11,7 @@ export default function Timeline({ steps }: { steps: Step[] }) {
       {steps.map((s, i) => (
         <li key={s.phase} className="relative flex flex-col">
           <div className="flex items-center gap-3 lg:flex-col lg:items-start lg:gap-4">
-            <span className="grid h-12 w-12 flex-shrink-0 place-items-center rounded-full bg-white font-display text-sm font-bold text-ink-950 ring-4 ring-ink-950">
+            <span className="grid h-12 w-12 flex-shrink-0 place-items-center rounded-full bg-moss-500 font-display text-sm font-bold text-ink-950 ring-4 ring-ink-950">
               0{i + 1}
             </span>
             <div className="text-[11px] uppercase tracking-[0.25em] text-sand-100/70">

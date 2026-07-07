@@ -22,10 +22,10 @@ const GALLERY = [
   { variant: 'water' as const, src: '/photos/p619.jpg', title: 'Зеркальная гладь водоема' },
   { variant: 'forest' as const, src: '/photos/p637.jpg', title: 'Прибрежная роща' },
   { variant: 'field' as const, src: '/photos/p650.jpg', title: 'Поля под клевер' },
-  { variant: 'sunset' as const, src: '/photos/p660.jpg', title: 'Закат над р. Аса' },
+  { variant: 'sunset' as const, src: '/photos/p660.jpg', title: 'Закат над р. Малая Аса' },
   { variant: 'tent' as const, src: '/photos/p624.jpg', title: 'Кемпинговая зона' },
   { variant: 'fish' as const, src: '/photos/p646.jpg', title: 'Рыболовные сектора' },
-  { variant: 'aerial' as const, src: '/photos/p635.jpg', title: 'Русло реки Аса' },
+  { variant: 'aerial' as const, src: '/photos/p635.jpg', title: 'Русло реки Малая Аса' },
 ];
 
 const ACTIVITIES = [
@@ -78,7 +78,7 @@ export default function About() {
             <span className="chip">Масштаб производства КФХ ӨRLEU</span>
             <h1 className="title-xl mt-6 text-balance">
               КФХ ӨRLEU:{' '}
-              <span className="bg-gradient-to-r from-white to-sand-200 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-moss-400 to-moss-500 bg-clip-text text-transparent">
                 Масштабное агро-рекреационное производство
               </span>
             </h1>
@@ -139,7 +139,7 @@ export default function About() {
             {ACTIVITIES.map((a) => (
               <div key={a.title} className="card grid items-center gap-6 sm:grid-cols-[1.1fr_1fr]">
                 <div>
-                  <span className="grid h-12 w-12 place-items-center rounded-2xl bg-white/10 text-sand-50 ring-1 ring-white/20">
+                  <span className="grid h-12 w-12 place-items-center rounded-2xl bg-moss-500/10 text-moss-400 ring-1 ring-moss-500/25">
                     {a.icon}
                   </span>
                   <h3 className="mt-5 text-xl font-bold text-sand-50">{a.title}</h3>

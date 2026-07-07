@@ -11,7 +11,7 @@ export const PHOTOS: Photo[] = [
   { src: '/photos/p624.jpg', title: 'Пикниковая роща', caption: 'Столы и костровые зоны в тени деревьев.' },
   { src: '/photos/p660.jpg', title: 'Вечер на берегу', caption: 'Тишина и красота природы.' },
   { src: '/photos/p646.jpg', title: 'Рыболовный сектор', caption: 'Берег, подготовленный для рыбалки.' },
-  { src: '/photos/p635.jpg', title: 'Русло реки Аса', caption: 'Пять километров береговой линии.' },
+  { src: '/photos/p635.jpg', title: 'Русло реки Малая Аса', caption: 'Пять километров береговой линии.' },
   { src: '/photos/p619.jpg', title: 'Зеркальная гладь', caption: 'Спокойная вода на закате дня.' },
   { src: '/photos/p637.jpg', title: 'Прибрежная роща', caption: 'Вековые деревья у самой воды.' },
   { src: '/photos/p650.jpg', title: 'Поля под клевер', caption: 'Плодородные земли хозяйства.' },

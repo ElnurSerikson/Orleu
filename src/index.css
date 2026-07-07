@@ -42,7 +42,7 @@
     @apply bg-ink-900/45 backdrop-blur-xl border border-white/15 rounded-2xl;
   }
   .chip {
-    @apply inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-sand-50 backdrop-blur-md;
+    @apply inline-flex items-center gap-2 rounded-full border border-moss-500/30 bg-moss-500/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-moss-400 backdrop-blur-md;
   }
   .btn {
     @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50;

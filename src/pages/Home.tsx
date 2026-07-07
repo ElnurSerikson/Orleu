@@ -55,7 +55,7 @@ export default function Home() {
             <span className="chip backdrop-blur">КФХ ORLEU · Жамбылская область</span>
             <h1 className="title-xl mt-6 text-balance drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)]">
               КФХ ORLEU: Территория отдыха и{' '}
-              <span className="bg-gradient-to-r from-white to-sand-200 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-moss-400 to-moss-500 bg-clip-text text-transparent">
                 деловых возможностей
               </span>
             </h1>
@@ -313,7 +313,7 @@ export default function Home() {
       {/* mini-marquee with icons */}
       <section className="py-6">
         <div className="container-x flex flex-wrap items-center justify-between gap-6 text-xs uppercase tracking-[0.3em] text-sand-100/45">
-          <span className="inline-flex items-center gap-2"><IconWaves className="h-4 w-4 text-sand-50/80" /> р. Аса</span>
+          <span className="inline-flex items-center gap-2"><IconWaves className="h-4 w-4 text-sand-50/80" /> р. Малая Аса</span>
           <span className="inline-flex items-center gap-2"><IconLeaf className="h-4 w-4 text-sand-50/80" /> 230+ га земли</span>
           <span className="inline-flex items-center gap-2"><IconFish className="h-4 w-4 text-sand-50/80" /> сазан · карп · амур</span>
           <span className="inline-flex items-center gap-2"><IconTent className="h-4 w-4 text-sand-50/80" /> кемпинг 24/7</span>

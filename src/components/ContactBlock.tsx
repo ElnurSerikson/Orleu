@@ -32,7 +32,7 @@ export default function ContactBlock({
           {/* Колонка 1: Контакты */}
           <div className="card flex flex-col">
             <div className="flex items-center gap-3">
-              <span className="grid h-10 w-10 place-items-center rounded-full bg-white/10 text-sand-50 ring-1 ring-white/20">
+              <span className="grid h-10 w-10 place-items-center rounded-full bg-moss-500/10 text-moss-400 ring-1 ring-moss-500/25">
                 <IconPhone className="h-5 w-5" />
               </span>
               <div>
@@ -113,7 +113,7 @@ export default function ContactBlock({
           {/* Колонка 2: Форма */}
           <div className="card flex flex-col">
             <div className="flex items-center gap-3">
-              <span className="grid h-10 w-10 place-items-center rounded-full bg-white/10 text-sand-50 ring-1 ring-white/20">
+              <span className="grid h-10 w-10 place-items-center rounded-full bg-moss-500/10 text-moss-400 ring-1 ring-moss-500/25">
                 <IconMail className="h-5 w-5" />
               </span>
               <div>
@@ -179,7 +179,7 @@ export default function ContactBlock({
           {/* Колонка 3: Карта */}
           <div className="card flex flex-col">
             <div className="flex items-center gap-3">
-              <span className="grid h-10 w-10 place-items-center rounded-full bg-white/10 text-sand-50 ring-1 ring-white/20">
+              <span className="grid h-10 w-10 place-items-center rounded-full bg-moss-500/10 text-moss-400 ring-1 ring-moss-500/25">
                 <IconPin className="h-5 w-5" />
               </span>
               <div>
@@ -229,7 +229,7 @@ export default function ContactBlock({
 
             {!showGuestPartnerLinks && (
               <p className="mt-5 text-xs text-sand-100/55">
-                Жамбылская область, 25 км от города Тараз, на берегу реки Аса.
+                Жамбылская область, 25 км от города Тараз, на берегу реки Малая Аса.
               </p>
             )}
           </div>

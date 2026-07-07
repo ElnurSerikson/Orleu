@@ -109,7 +109,7 @@ export default function Guests() {
             <span className="chip">Отдых · Рыбалка · Кемпинг</span>
             <h1 className="title-xl mt-6 text-balance">
               ORLEU: Территория вашего{' '}
-              <span className="bg-gradient-to-r from-white to-sand-200 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-moss-400 to-moss-500 bg-clip-text text-transparent">
                 комфортного отдыха на природе
               </span>
             </h1>
@@ -179,7 +179,7 @@ export default function Guests() {
                     i === 0 ? 'aspect-[2/1]' : 'aspect-[4/3]'
                   }`}
                 />
-                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-white/10 text-sand-50 ring-1 ring-white/20">
+                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-moss-500/10 text-moss-400 ring-1 ring-moss-500/25">
                   {b.icon}
                 </span>
                 <h3 className="mt-5 text-xl font-bold text-sand-50">{b.title}</h3>
@@ -204,7 +204,7 @@ export default function Guests() {
                 { category: 'Взрослый билет', day: '3 000 ₸', night: '3 000 ₸', full: '5 000 ₸' },
                 { category: 'Детский билет (7–12 лет)', day: '1 500 ₸', night: '1 500 ₸', full: '2 500 ₸' },
               ]}
-              footnote="В каждый взрослый билет включен бесплатный вылов 2 кг рыбы. Перелов: 1 500 ₸/кг."
+              footnote="Дети до 7 лет — бесплатно. В каждый взрослый билет включен бесплатный вылов 2 кг рыбы. Перелов: 1 500 ₸/кг."
             />
           </div>
         </div>
@@ -228,7 +228,7 @@ export default function Guests() {
                     : 'lg:col-span-2'
                 }`}
               >
-                <span className="grid h-12 w-12 flex-shrink-0 place-items-center rounded-2xl bg-white/10 text-sand-50 ring-1 ring-white/20">
+                <span className="grid h-12 w-12 flex-shrink-0 place-items-center rounded-2xl bg-moss-500/10 text-moss-400 ring-1 ring-moss-500/25">
                   {r.icon}
                 </span>
                 <div>
