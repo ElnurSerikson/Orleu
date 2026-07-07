@@ -10,14 +10,9 @@ export default function Brand({ compact = false }: Props) {
         <span className="absolute -inset-1 rounded-2xl bg-moss-500/0 transition group-hover:bg-moss-500/15" />
       </span>
       {!compact && (
-        <div className="leading-tight">
-          <div className="font-display text-base font-extrabold tracking-wide text-sand-50">
-            КФХ ӨRLEU
-          </div>
-          <div className="text-[10px] uppercase tracking-[0.3em] text-moss-400/80">
-            Жамбылская обл. · р. Аса
-          </div>
-        </div>
+        <span className="font-display text-lg font-extrabold tracking-wide text-sand-50 sm:text-xl">
+          КФХ ӨRLEU
+        </span>
       )}
     </Link>
   );

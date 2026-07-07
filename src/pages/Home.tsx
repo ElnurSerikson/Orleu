@@ -2,7 +2,9 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SectionHeader from '../components/SectionHeader';
 import StatCard from '../components/StatCard';
-import Carousel from '../components/Carousel';
+import GalleryStrip from '../components/GalleryStrip';
+import GalleryModal from '../components/GalleryModal';
+import { PHOTOS } from '../data/photos';
 import AssetPlaceholder from '../components/AssetPlaceholder';
 import ContactBlock from '../components/ContactBlock';
 import VideoLightbox from '../components/VideoLightbox';
@@ -286,21 +288,21 @@ export default function Home() {
           />
 
           <div className="mt-14">
-            <Carousel
-              slides={[
-                { src: '/photos/map-frame.jpg', title: 'Карта территории', caption: 'Схема водоёма и зон отдыха ORLEU.' },
-                { src: '/photos/dji-aerial.jpg', title: 'Вид с высоты', caption: 'Панорама водоёма и полей КФХ ORLEU.' },
-                { src: '/photos/p639.jpg', title: 'Водоём 25 га', caption: 'Проточное озеро с камышовыми берегами.' },
-                { src: '/photos/p624.jpg', title: 'Пикниковая роща', caption: 'Столы и костровые зоны в тени деревьев.' },
-                { src: '/photos/p660.jpg', title: 'Берег реки Аса', caption: 'Тишина и красота природы.' },
-              ]}
+            <GalleryStrip
+              photos={PHOTOS}
+              onTileClick={() => setPhotosOpen(true)}
+              lead={{
+                src: '/photos/map-frame.jpg',
+                label: 'Схема водоёма и зон отдыха',
+                onClick: () => setMapOpen(true),
+              }}
             />
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-              <button type="button" onClick={() => setPhotosOpen(true)} className="btn-ghost">
+              <button type="button" onClick={() => setPhotosOpen(true)} className="btn-primary">
                 Смотреть все фото
               </button>
-              <button type="button" onClick={() => setMapOpen(true)} className="btn-primary">
+              <button type="button" onClick={() => setMapOpen(true)} className="btn-ghost">
                 <IconSparkle className="h-4 w-4" /> Открыть карту территории
               </button>
             </div>
@@ -380,35 +382,12 @@ export default function Home() {
 
       <MapLightbox open={mapOpen} onClose={() => setMapOpen(false)} />
 
-      {photosOpen && (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-ink-950/85 p-4 backdrop-blur-md"
-          onClick={() => setPhotosOpen(false)}
-        >
-          <div className="relative w-full max-w-5xl" onClick={(e) => e.stopPropagation()}>
-            <button
-              type="button"
-              onClick={() => setPhotosOpen(false)}
-              aria-label="Закрыть"
-              className="absolute -top-12 right-0 grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-ink-900/80 text-sand-50 transition hover:bg-ink-800"
-            >
-              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M6 6l12 12M18 6 6 18" />
-              </svg>
-            </button>
-            <Carousel
-              slides={[
-                { src: '/photos/dji-aerial.jpg', title: 'Вид с высоты', caption: 'Панорама водоёма и полей.' },
-                { src: '/photos/p639.jpg', title: 'Водоём 25 га' },
-                { src: '/photos/p624.jpg', title: 'Пикниковая роща' },
-                { src: '/photos/p646.jpg', title: 'Берег для рыбалки' },
-                { src: '/photos/p635.jpg', title: 'Русло реки Аса' },
-                { src: '/photos/p660.jpg', title: 'Вечер на берегу' },
-              ]}
-            />
-          </div>
-        </div>
-      )}
+      <GalleryModal
+        open={photosOpen}
+        onClose={() => setPhotosOpen(false)}
+        photos={PHOTOS}
+        title="Атмосфера ORLEU: все фото"
+      />
     </>
   );
 }

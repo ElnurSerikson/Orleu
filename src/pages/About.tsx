@@ -5,6 +5,7 @@ import FeatureCard from '../components/FeatureCard';
 import SectionHeader from '../components/SectionHeader';
 import Timeline from '../components/Timeline';
 import ContactBlock from '../components/ContactBlock';
+import PhotoLightbox from '../components/PhotoLightbox';
 import {
   IconArrowRight,
   IconChart,
@@ -166,25 +167,21 @@ export default function About() {
                   phase: 'Этап 1 · 2011–2024',
                   title: 'Фундамент и Экспертиза',
                   text: 'Период комплексного освоения земельного фонда и водоема. Наработка производственной экспертизы в растениеводстве и аквакультуре, формирование базового клиентского потока в сфере рыболовного отдыха.',
-                  status: 'current',
                 },
                 {
                   phase: 'Этап 2 · 2024–2026',
                   title: 'Трансформация и Оцифровка',
                   text: 'Переход к модели управляемого бизнеса: внедрение CRM-стандартов, создание прозрачной системы учета, запуск цифровых каналов коммуникации и системное обновление инфраструктуры для партнерских проектов и B2C сегментов.',
-                  status: 'next',
                 },
                 {
                   phase: 'Этап 3 · 2026–2027',
                   title: 'Интенсификация производства',
                   text: 'Масштабирование аквакультуры через установку промышленных садковых линий. Переход от экстенсивного использования ресурсов к интенсивным методам выращивания товарной рыбы с высокой маржинальностью.',
-                  status: 'future',
                 },
                 {
                   phase: 'Этап 4 · 2027–2028+',
                   title: 'Полный цикл и Капитализация',
                   text: 'Создание цеха глубокой переработки продукции (вяление, копчение), замыкание производственного цикла внутри экосистемы и развитие партнерских СП в агросекторе (МРС, кормопроизводство) для максимизации капитализации актива.',
-                  status: 'future',
                 },
               ]}
             />
@@ -274,60 +271,11 @@ export default function About() {
       <ContactBlock />
 
       {lightbox !== null && (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-ink-950/90 p-4 backdrop-blur-md"
-          onClick={() => setLightbox(null)}
-        >
-          <button
-            type="button"
-            onClick={() => setLightbox(null)}
-            aria-label="Закрыть"
-            className="absolute right-4 top-4 grid h-12 w-12 place-items-center rounded-full border border-white/15 bg-ink-900/80 text-sand-50 transition hover:bg-ink-800"
-          >
-            <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M6 6l12 12M18 6 6 18" />
-            </svg>
-          </button>
-
-          <button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              setLightbox((v) => (v === null ? null : (v - 1 + GALLERY.length) % GALLERY.length));
-            }}
-            aria-label="Назад"
-            className="absolute left-4 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-white/15 bg-ink-900/80 text-sand-50 transition hover:bg-ink-800"
-          >
-            ←
-          </button>
-
-          <div className="w-full max-w-5xl" onClick={(e) => e.stopPropagation()}>
-            <AssetPlaceholder
-              variant={GALLERY[lightbox].variant}
-              src={GALLERY[lightbox].src}
-              alt={GALLERY[lightbox].title}
-              className="aspect-[16/10]"
-            />
-            <div className="mt-4 text-center">
-              <div className="text-[11px] uppercase tracking-[0.3em] text-sand-100/70">
-                {String(lightbox + 1).padStart(2, '0')} / {String(GALLERY.length).padStart(2, '0')}
-              </div>
-              <div className="mt-2 text-lg font-bold text-sand-50">{GALLERY[lightbox].title}</div>
-            </div>
-          </div>
-
-          <button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              setLightbox((v) => (v === null ? null : (v + 1) % GALLERY.length));
-            }}
-            aria-label="Вперед"
-            className="absolute right-4 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-white/15 bg-ink-900/80 text-sand-50 transition hover:bg-ink-800"
-          >
-            →
-          </button>
-        </div>
+        <PhotoLightbox
+          photos={GALLERY.map((g) => ({ src: g.src, title: g.title }))}
+          startIndex={lightbox}
+          onClose={() => setLightbox(null)}
+        />
       )}
     </>
   );

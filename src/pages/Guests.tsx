@@ -5,7 +5,8 @@ import SectionHeader from '../components/SectionHeader';
 import AssetPlaceholder from '../components/AssetPlaceholder';
 import ContactBlock from '../components/ContactBlock';
 import VideoLightbox from '../components/VideoLightbox';
-import Carousel from '../components/Carousel';
+import GalleryModal from '../components/GalleryModal';
+import { PHOTOS } from '../data/photos';
 import {
   IconFish,
   IconLeaf,
@@ -217,10 +218,17 @@ export default function Guests() {
             title="Правила бережного отдыха"
             subtitle="Мы сохраняем чистоту и спокойствие для вашего качественного отдыха."
           />
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {RULES.map((r) => (
-              <div key={r.title} className="card flex flex-col gap-4">
-                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-white/10 text-sand-50 ring-1 ring-white/20">
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-6">
+            {RULES.map((r, i) => (
+              <div
+                key={r.title}
+                className={`card flex flex-col gap-4 ${
+                  i === 4
+                    ? 'sm:col-span-2 lg:col-span-4 lg:flex-row lg:items-center lg:gap-6'
+                    : 'lg:col-span-2'
+                }`}
+              >
+                <span className="grid h-12 w-12 flex-shrink-0 place-items-center rounded-2xl bg-white/10 text-sand-50 ring-1 ring-white/20">
                   {r.icon}
                 </span>
                 <div>
@@ -269,38 +277,12 @@ export default function Guests() {
         title="Видео-обзор всей территории отдыха ORLEU"
       />
 
-      {photosOpen && (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-ink-950/85 p-4 backdrop-blur-md"
-          onClick={() => setPhotosOpen(false)}
-        >
-          <div
-            className="relative w-full max-w-5xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              type="button"
-              onClick={() => setPhotosOpen(false)}
-              aria-label="Закрыть"
-              className="absolute -top-12 right-0 grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-ink-900/80 text-sand-50 transition hover:bg-ink-800"
-            >
-              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M6 6l12 12M18 6 6 18" />
-              </svg>
-            </button>
-            <Carousel
-              slides={[
-                { src: '/photos/dji-aerial.jpg', title: 'Вид с высоты', caption: 'Панорама водоёма и полей.' },
-                { src: '/photos/p639.jpg', title: 'Водоём 25 га' },
-                { src: '/photos/p624.jpg', title: 'Пикниковая роща' },
-                { src: '/photos/p646.jpg', title: 'Берег для рыбалки' },
-                { src: '/photos/p635.jpg', title: 'Русло реки Аса' },
-                { src: '/photos/p660.jpg', title: 'Вечер на берегу' },
-              ]}
-            />
-          </div>
-        </div>
-      )}
+      <GalleryModal
+        open={photosOpen}
+        onClose={() => setPhotosOpen(false)}
+        photos={PHOTOS}
+        title="Фото территории отдыха"
+      />
     </>
   );
 }

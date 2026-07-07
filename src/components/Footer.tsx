@@ -8,8 +8,8 @@ export default function Footer() {
         <div className="lg:col-span-2">
           <Brand />
           <p className="mt-5 max-w-md text-sm leading-relaxed text-sand-100/60">
-            Платформа для агробизнеса, рыбоводства и экотуризма. 230 гектар земли
-            и 25 га проточного водоема на берегу реки Аса.
+            Платформа для агробизнеса, рыбоводства и экотуризма: 230 га земли и
+            25 га проточного водоёма.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a href="https://www.instagram.com/orleu8.kz/" target="_blank" rel="noreferrer" className="btn-ghost">
