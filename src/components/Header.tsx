@@ -5,7 +5,7 @@ import Brand from './Brand';
 const NAV = [
   { to: '/', label: 'Главная' },
   { to: '/guests', label: 'Для гостей' },
-  { to: '/partnership', label: 'Партнерство' },
+  { to: '/partnership', label: 'Для партнеров' },
   { to: '/about', label: 'О КФХ' },
   { to: '/contacts', label: 'Контакты' },
 ];

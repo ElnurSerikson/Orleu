@@ -291,13 +291,10 @@ export default function Partnership() {
           />
 
           <div className="mt-14 grid gap-6 lg:grid-cols-3">
-            {CATEGORIES.map((c, i) => (
+            {CATEGORIES.map((c) => (
               <div key={c.title} className="card relative flex flex-col overflow-hidden">
-                <span className="chip">{c.tag}</span>
-                <span className="mt-6 grid h-12 w-12 place-items-center rounded-2xl bg-moss-500/10 text-moss-400 ring-1 ring-moss-500/25">
-                  {c.icon}
-                </span>
-                <h3 className="mt-5 text-xl font-bold text-sand-50">{c.title}</h3>
+                <span className="chip self-start">{c.tag}</span>
+                <h3 className="mt-6 text-xl font-bold text-sand-50">{c.title}</h3>
                 <ul className="mt-4 space-y-2 text-sm text-sand-100/75">
                   {c.items.map((it) => (
                     <li key={it} className="flex items-center gap-2">
@@ -319,9 +316,6 @@ export default function Partnership() {
                 >
                   Обсудить категорию <IconArrowRight className="h-4 w-4" />
                 </a>
-                <div className="absolute right-4 top-4 font-display text-3xl font-extrabold text-moss-500/20">
-                  0{i + 1}
-                </div>
               </div>
             ))}
           </div>
