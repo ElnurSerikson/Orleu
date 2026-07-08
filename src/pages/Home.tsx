@@ -50,6 +50,11 @@ export default function Home() {
         <div className="absolute inset-0 bg-leaf-radial mix-blend-soft-light" />
         <div className="container-x relative grid min-h-[88vh] place-items-center py-24">
           <div className="max-w-4xl text-center">
+            <img
+              src="/logo.png"
+              alt="КФХ ORLEU"
+              className="mx-auto mb-8 h-16 w-auto drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)] sm:h-20"
+            />
             <span className="chip backdrop-blur">КФХ ORLEU · Жамбылская область</span>
             <h1 className="title-xl mt-6 text-balance drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)]">
               Территория отдыха и{' '}

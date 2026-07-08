@@ -75,6 +75,11 @@ export default function About() {
         <div className="absolute inset-0 bg-gradient-to-b from-ink-950/85 via-ink-950/55 to-ink-950" />
         <div className="container-x relative grid min-h-[78vh] place-items-center py-24">
           <div className="max-w-3xl text-center">
+            <img
+              src="/logo.png"
+              alt="КФХ ORLEU"
+              className="mx-auto mb-8 h-16 w-auto drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)] sm:h-20"
+            />
             <span className="chip">Масштаб производства КФХ ӨRLEU</span>
             <h1 className="title-xl mt-6 text-balance">
               Масштабное{' '}

@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="relative border-t border-white/10 bg-[#0a1710]">
       <div className="container-x grid gap-12 py-16 lg:grid-cols-4">
         <div className="lg:col-span-2">
-          <Brand />
+          <Brand className="h-7 w-auto sm:h-8" />
           <p className="mt-5 max-w-md text-sm leading-relaxed text-sand-100/60">
             Платформа для агробизнеса, рыбоводства и экотуризма: 230 га земли и
             25 га проточного водоёма.

@@ -30,7 +30,7 @@ export default function Header() {
       }`}
     >
       <div className="container-x flex h-16 items-center justify-between sm:h-20">
-        <Brand />
+        <Brand className="h-6 w-auto sm:h-7" />
 
         <nav className="hidden items-center gap-1 lg:flex">
           {NAV.map((item) => (

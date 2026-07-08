@@ -1,19 +1,11 @@
 import { Link } from 'react-router-dom';
 
-type Props = { compact?: boolean };
+type Props = { className?: string };
 
-export default function Brand({ compact = false }: Props) {
+export default function Brand({ className = 'h-8 w-auto sm:h-9' }: Props) {
   return (
-    <Link to="/" className="group flex items-center gap-3">
-      <span className="relative grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-moss-500 to-moss-700 shadow-glow">
-        <span className="font-display text-lg font-extrabold text-ink-950">Ө</span>
-        <span className="absolute -inset-1 rounded-2xl bg-moss-500/0 transition group-hover:bg-moss-500/15" />
-      </span>
-      {!compact && (
-        <span className="font-display text-lg font-extrabold tracking-wide text-sand-50 sm:text-xl">
-          КФХ ӨRLEU
-        </span>
-      )}
+    <Link to="/" className="inline-flex items-center" aria-label="КФХ ORLEU — на главную">
+      <img src="/logo.png" alt="КФХ ORLEU" className={className} />
     </Link>
   );
 }
