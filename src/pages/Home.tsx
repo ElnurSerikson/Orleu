@@ -48,7 +48,7 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-ink-950/45 via-ink-950/35 to-ink-950/85" />
         <div className="absolute inset-0 bg-leaf-radial mix-blend-soft-light" />
-        <div className="container-x relative grid min-h-[88vh] place-items-center py-24">
+        <div className="container-x relative grid min-h-[78vh] place-items-center py-16 sm:min-h-[88vh] sm:py-24">
           <div className="max-w-4xl text-center">
             <img
               src="/logo.png"
@@ -97,7 +97,7 @@ export default function Home() {
             title="КФХ ORLEU в цифрах"
             subtitle="Узнайте, почему ORLEU — это выгодное место для вашего отдыха и бизнеса."
           />
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 sm:mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             <StatCard
               icon={<IconLeaf />}
               value="230+ га"
@@ -147,7 +147,7 @@ export default function Home() {
             subtitle="Насладиться незабываемым отдыхом или построить успешный бизнес."
           />
 
-          <div className="mt-14 grid gap-6 lg:grid-cols-2">
+          <div className="mt-10 sm:mt-14 grid gap-6 lg:grid-cols-2">
             {/* Слева — для гостей */}
             <Link
               to="/guests"
@@ -214,7 +214,7 @@ export default function Home() {
             subtitle="Мы создаем пространство, где природа встречается с комфортом и новыми возможностями."
           />
 
-          <div className="mt-14 grid gap-5 lg:grid-cols-3">
+          <div className="mt-10 sm:mt-14 grid gap-5 lg:grid-cols-3">
             {/* Карточка 1 — Рыбалка и Рекреация */}
             <div className="card group relative flex flex-col overflow-hidden">
               <div className="absolute -right-10 -top-10 h-44 w-44 rounded-full bg-white/10 blur-3xl" />
@@ -293,7 +293,7 @@ export default function Home() {
             subtitle="Лучшие кадры нашего хозяйства — листайте ленту и открывайте фото на весь экран."
           />
 
-          <div className="mt-14">
+          <div className="mt-10 sm:mt-14">
             <GalleryStrip photos={PHOTOS} onTileClick={(i) => setLightboxIndex(i)} />
           </div>
         </div>
@@ -307,7 +307,7 @@ export default function Home() {
             title="Схема водоёма и зон отдыха"
             subtitle="Листайте карту стрелками или разверните на весь экран, чтобы изучить каждую зону."
           />
-          <div className="mt-12">
+          <div className="mt-8 sm:mt-12">
             <MapBlock
               caption="Тяните карту мышью или листайте стрелками."
               videoLabel="Видео-обзор территории"
@@ -319,7 +319,7 @@ export default function Home() {
 
       {/* mini-marquee with icons */}
       <section className="py-6">
-        <div className="container-x flex flex-wrap items-center justify-between gap-6 text-xs uppercase tracking-[0.3em] text-sand-100/45">
+        <div className="container-x grid grid-cols-2 gap-x-4 gap-y-4 text-xs uppercase tracking-[0.3em] text-sand-100/45 sm:flex sm:flex-wrap sm:items-center sm:justify-between sm:gap-6">
           <span className="inline-flex items-center gap-2"><IconWaves className="h-4 w-4 text-sand-50/80" /> р. Малая Аса</span>
           <span className="inline-flex items-center gap-2"><IconLeaf className="h-4 w-4 text-sand-50/80" /> 230+ га земли</span>
           <span className="inline-flex items-center gap-2"><IconFish className="h-4 w-4 text-sand-50/80" /> сазан · карп · амур</span>
@@ -338,7 +338,7 @@ export default function Home() {
             subtitle="Вопросы отдыха или сотрудничества — выберите подходящую категорию, и мы ответим в WhatsApp."
           />
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 max-w-3xl mx-auto">
+          <div className="mt-8 sm:mt-12 grid gap-6 sm:grid-cols-2 max-w-3xl mx-auto">
             <a
               href={WA_GUESTS}
               target="_blank"

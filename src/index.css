@@ -57,7 +57,7 @@
     @apply btn bg-ink-800 text-sand-50 border border-white/10 hover:bg-ink-700;
   }
   .section {
-    @apply py-20 sm:py-28;
+    @apply py-14 sm:py-28;
   }
   /* Сплошная тёмно-зелёная полоса поверх фоновых листьев (чередование секций по референсу) */
   .section-solid {

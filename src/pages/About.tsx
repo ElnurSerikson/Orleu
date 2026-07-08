@@ -73,7 +73,7 @@ export default function About() {
           className="absolute inset-0 rounded-none border-0"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-ink-950/45 via-ink-950/35 to-ink-950/85" />
-        <div className="container-x relative grid min-h-[78vh] place-items-center py-24">
+        <div className="container-x relative grid min-h-[70vh] place-items-center py-16 sm:min-h-[78vh] sm:py-24">
           <div className="max-w-3xl text-center">
             <img
               src="/logo.png"
@@ -109,7 +109,7 @@ export default function About() {
             title="Принципы управления ӨRLEU: Системность и масштаб"
             subtitle="Формируем образ надежного, системного и прозрачного партнера."
           />
-          <div className="mt-14 grid gap-5 lg:grid-cols-3">
+          <div className="mt-10 sm:mt-14 grid gap-5 lg:grid-cols-3">
             <FeatureCard
               icon={<IconShield />}
               title="«Экосистема как капитал»"
@@ -133,14 +133,14 @@ export default function About() {
       </section>
 
       {/* 4.3 ЦИФРОВАЯ ЭКОСИСТЕМА */}
-      <section id="activities" className="section">
+      <section id="activities" className="section scroll-mt-20">
         <div className="container-x">
           <SectionHeader
             eyebrow="Цифровая экосистема деятельности"
             title="Экосистема ӨRLEU: Диверсификация и стабильность"
             subtitle="Мы объединили агропроизводство, интенсивную аквакультуру и сервисную инфраструктуру в единый холдинг с управляемыми рисками."
           />
-          <div className="mt-14 grid gap-5 sm:grid-cols-2">
+          <div className="mt-10 sm:mt-14 grid gap-5 sm:grid-cols-2">
             {ACTIVITIES.map((a) => (
               <div key={a.title} className="card grid items-center gap-6 sm:grid-cols-[1.1fr_1fr]">
                 <div>
@@ -165,7 +165,7 @@ export default function About() {
             title="Эволюция ӨRLEU: От освоения к системному масштабированию"
             subtitle="Планомерно масштабируем бизнес-модель КФХ по чётким этапам."
           />
-          <div className="mt-14">
+          <div className="mt-10 sm:mt-14">
             <Timeline
               steps={[
                 {
@@ -202,7 +202,7 @@ export default function About() {
             title="Галерея ӨRLEU: Масштаб земель и красота природы"
             subtitle="Фотофиксация ключевых объектов инфраструктуры, земельных угодий и атмосферы нашей экосистемы."
           />
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 sm:mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {GALLERY.map((g, i) => (
               <button
                 key={`${g.title}-${i}`}
@@ -234,7 +234,7 @@ export default function About() {
             eyebrow="Сделайте выбор"
             title="Выберите ваш формат взаимодействия с ӨRLEU"
           />
-          <div className="mt-14 grid gap-6 lg:grid-cols-2">
+          <div className="mt-10 sm:mt-14 grid gap-6 lg:grid-cols-2">
             {/* Слева — для гостей */}
             <Link
               to="/guests"

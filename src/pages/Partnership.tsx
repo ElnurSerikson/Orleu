@@ -168,7 +168,7 @@ export default function Partnership() {
           className="absolute inset-0 rounded-none border-0"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-ink-950/45 via-ink-950/35 to-ink-950/85" />
-        <div className="container-x relative grid min-h-[78vh] place-items-center py-24">
+        <div className="container-x relative grid min-h-[70vh] place-items-center py-16 sm:min-h-[78vh] sm:py-24">
           <div className="max-w-3xl text-center">
             <img
               src="/logo.png"
@@ -208,7 +208,7 @@ export default function Partnership() {
             title="Факты и коммерческий потенциал"
             subtitle="Технический паспорт: масштаб и инфраструктурная готовность, подтвержденные цифрами."
           />
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 sm:mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {FACTS.map((f, i) => (
               <FeatureCard
                 key={f.value}
@@ -230,7 +230,7 @@ export default function Partnership() {
             title="Карта инфраструктурных возможностей ӨRLEU"
             subtitle="Визуализация ключевых зон с готовым клиентским трафиком."
           />
-          <div className="mt-12">
+          <div className="mt-8 sm:mt-12">
             <MapBlock
               caption="Тяните карту мышью или листайте стрелками."
               videoLabel="Видео-обзор инфраструктуры"
@@ -272,7 +272,7 @@ export default function Partnership() {
             title="Почему сотрудничество с ӨRLEU — ваш эффективный актив"
             subtitle="Мы предлагаем модель, где вы капитализируете свои проекты, а не теряете средства на фиксированной аренде."
           />
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 sm:mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {BENEFITS.map((b, i) => (
               <FeatureCard
                 key={b.title}
@@ -287,7 +287,7 @@ export default function Partnership() {
       </section>
 
       {/* 3.5 КАТЕГОРИИ ПАРТНЁРСТВА */}
-      <section id="categories" className="section">
+      <section id="categories" className="section scroll-mt-20">
         <div className="container-x">
           <SectionHeader
             eyebrow="Категории партнерства"
@@ -295,7 +295,7 @@ export default function Partnership() {
             subtitle="Выберите направление, соответствующее вашим целям, и используйте инфраструктуру ӨRLEU для быстрого старта."
           />
 
-          <div className="mt-14 grid gap-6 lg:grid-cols-3">
+          <div className="mt-10 sm:mt-14 grid gap-6 lg:grid-cols-3">
             {CATEGORIES.map((c) => (
               <div key={c.title} className="card relative flex flex-col overflow-hidden">
                 <span className="chip self-start">{c.tag}</span>

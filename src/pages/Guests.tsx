@@ -104,7 +104,7 @@ export default function Guests() {
           className="absolute inset-0 rounded-none border-0"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-ink-950/45 via-ink-950/35 to-ink-950/85" />
-        <div className="container-x relative grid min-h-[78vh] place-items-center py-24">
+        <div className="container-x relative grid min-h-[70vh] place-items-center py-16 sm:min-h-[78vh] sm:py-24">
           <div className="max-w-3xl text-center">
             <img
               src="/logo.png"
@@ -141,7 +141,7 @@ export default function Guests() {
             title="Карта водоема и береговой линии"
             subtitle="5 километров дикой природы, подготовленной для вашего удобства."
           />
-          <div className="mt-12">
+          <div className="mt-8 sm:mt-12">
             <MapBlock
               caption="Тяните карту мышью или листайте стрелками."
               videoLabel="Видео-обзор территории"
@@ -173,7 +173,7 @@ export default function Guests() {
             title="Ваш комфортный отдых в ORLEU"
             subtitle="Создаем условия для спокойного семейного отдыха, корпоративных выездов и настоящей рыбалки."
           />
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 sm:mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {BANNERS.map((b, i) => (
               <div
                 key={b.title}
@@ -201,14 +201,14 @@ export default function Guests() {
       </section>
 
       {/* 2.4 Тарифы */}
-      <section id="prices" className="section section-solid">
+      <section id="prices" className="section section-solid scroll-mt-20">
         <div className="container-x">
           <SectionHeader
             eyebrow="Тарифы"
             title="Стоимость пребывания в ORLEU"
             subtitle="Официальный прайс-лист КФХ на сезон 2026 года."
           />
-          <div className="mt-12">
+          <div className="mt-8 sm:mt-12">
             <PriceTable
               rows={[
                 { category: 'Взрослый билет', day: '3 000 ₸', full: '5 000 ₸' },
@@ -228,7 +228,7 @@ export default function Guests() {
             title="Правила бережного отдыха"
             subtitle="Мы сохраняем чистоту и спокойствие для вашего качественного отдыха."
           />
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-6">
+          <div className="mt-8 sm:mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-6">
             {RULES.map((r, i) => (
               <div
                 key={r.title}
