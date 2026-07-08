@@ -134,7 +134,7 @@ export default function MapBlock({
 
   return (
     <>
-      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-white/10 bg-ink-900 sm:aspect-[16/10]">
+      <div className="relative aspect-[20/27] w-full overflow-hidden rounded-3xl border border-white/10 bg-ink-900 sm:aspect-[16/10]">
         {/* Панорама: тянется мышью (drag-to-pan) и листается стрелками */}
         <div
           ref={scrollerRef}
