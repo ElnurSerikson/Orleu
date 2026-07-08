@@ -226,7 +226,7 @@ export default function About() {
       <section className="section section-solid">
         <div className="container-x">
           <SectionHeader
-            eyebrow="Финализация выбора"
+            eyebrow="Сделайте выбор"
             title="Выберите ваш формат взаимодействия с ӨRLEU"
           />
           <div className="mt-14 grid gap-6 lg:grid-cols-2">
