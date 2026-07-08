@@ -30,7 +30,7 @@ export default function Header() {
       }`}
     >
       <div className="container-x flex h-16 items-center justify-between sm:h-20">
-        <Brand className="h-6 w-auto sm:h-7" />
+        <Brand src="/logo-insc.png" className="h-9 w-auto rounded-md sm:h-10" />
 
         <nav className="hidden items-center gap-1 lg:flex">
           {NAV.map((item) => (

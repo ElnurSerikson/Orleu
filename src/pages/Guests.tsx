@@ -103,7 +103,7 @@ export default function Guests() {
           alt="Водоём ORLEU с камышовыми берегами"
           className="absolute inset-0 rounded-none border-0"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink-950/85 via-ink-950/55 to-ink-950" />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink-950/45 via-ink-950/35 to-ink-950/85" />
         <div className="container-x relative grid min-h-[78vh] place-items-center py-24">
           <div className="max-w-3xl text-center">
             <img
@@ -112,13 +112,13 @@ export default function Guests() {
               className="mx-auto mb-8 h-16 w-auto drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)] sm:h-20"
             />
             <span className="chip">Отдых · Рыбалка · Кемпинг</span>
-            <h1 className="title-xl mt-6 text-balance">
+            <h1 className="title-xl mt-6 text-balance drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)]">
               Территория вашего{' '}
               <span className="bg-gradient-to-r from-moss-400 to-moss-500 bg-clip-text text-transparent">
                 комфортного отдыха на природе
               </span>
             </h1>
-            <p className="lead mx-auto mt-6 max-w-2xl">
+            <p className="lead mx-auto mt-6 max-w-2xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]">
               Эко-отдых в 25 км от Тараза. Работаем круглосуточно: дневные, ночные
               и суточные форматы отдыха. Рыбалка уже включена в стоимость путевки
               (2 кг улова — в подарок).

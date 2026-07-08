@@ -68,11 +68,11 @@ export default function About() {
       <section className="relative isolate overflow-hidden">
         <AssetPlaceholder
           variant="aerial"
-          src="/hero-bg.jpg"
-          alt="Аэросъёмка КФХ ӨRLEU"
+          src="/photos/p635.jpg"
+          alt="Русло реки Малая Аса — территория КФХ ӨRLEU"
           className="absolute inset-0 rounded-none border-0"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink-950/85 via-ink-950/55 to-ink-950" />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink-950/45 via-ink-950/35 to-ink-950/85" />
         <div className="container-x relative grid min-h-[78vh] place-items-center py-24">
           <div className="max-w-3xl text-center">
             <img
@@ -81,13 +81,13 @@ export default function About() {
               className="mx-auto mb-8 h-16 w-auto drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)] sm:h-20"
             />
             <span className="chip">Масштаб производства КФХ ӨRLEU</span>
-            <h1 className="title-xl mt-6 text-balance">
+            <h1 className="title-xl mt-6 text-balance drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)]">
               Масштабное{' '}
               <span className="bg-gradient-to-r from-moss-400 to-moss-500 bg-clip-text text-transparent">
                 агро-рекреационное производство
               </span>
             </h1>
-            <p className="lead mx-auto mt-6 max-w-2xl">
+            <p className="lead mx-auto mt-6 max-w-2xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]">
               Более 230 гектаров земли и 25 гектаров проточной воды под управлением
               профессиональной команды. Оцифрованная экосистема для инвестиций,
               агробизнеса и качественного загородного отдыха.
@@ -235,37 +235,57 @@ export default function About() {
             title="Выберите ваш формат взаимодействия с ӨRLEU"
           />
           <div className="mt-14 grid gap-6 lg:grid-cols-2">
+            {/* Слева — для гостей */}
             <Link
               to="/guests"
-              className="group relative overflow-hidden rounded-3xl border border-white/25 bg-white/[0.07] backdrop-blur-xl p-10 transition hover:-translate-y-1"
+              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-ink-850/70 transition hover:border-white/35"
             >
-              <div className="absolute -right-16 -top-16 h-60 w-60 rounded-full bg-white/10 blur-3xl" />
-              <span className="chip">Для Гостей</span>
-              <h3 className="title-md relative mt-5">Рекреация и отдых</h3>
-              <p className="lead relative mt-3 max-w-md">
-                Территория комфорта на берегу реки Малая Аса: от профессиональной
-                трофейной рыбалки до организации событийного отдыха в кругу близких.
-              </p>
-              <div className="relative mt-8 inline-flex items-center gap-2 text-sm font-semibold text-sand-50">
-                Перейти в раздел отдыха
-                <IconArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+              <AssetPlaceholder
+                variant="water"
+                src="/photos/p644.jpg"
+                alt="Водоём ORLEU"
+                className="aspect-[16/10] rounded-none border-0"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/40 to-transparent" />
+              <div className="absolute inset-x-6 bottom-6 sm:inset-x-8 sm:bottom-8">
+                <span className="chip">Для гостей и отдыхающих</span>
+                <h3 className="mt-4 text-2xl font-bold sm:text-3xl">
+                  Незабываемый отдых и трофейная рыбалка
+                </h3>
+                <p className="mt-2 max-w-md text-sm text-sand-100/70">
+                  Чистый воздух, богатый водоем и идеальные условия для
+                  семейного отдыха и настоящей рыбалки.
+                </p>
+                <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-sand-50">
+                  Хочу на отдых <IconArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                </div>
               </div>
             </Link>
 
+            {/* Справа — для партнёров */}
             <Link
               to="/partnership"
-              className="group relative overflow-hidden rounded-3xl border border-white/15 bg-ink-900/45 backdrop-blur-xl p-10 transition hover:-translate-y-1"
+              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-ink-850/70 transition hover:border-white/35"
             >
-              <span className="chip">Для Партнеров</span>
-              <h3 className="title-md mt-5">Партнерство и совместные предприятия</h3>
-              <p className="lead mt-3 max-w-md">
-                Масштабируйте бизнес на базе нашей инфраструктуры. Предлагаем
-                прозрачные условия для развития агро-проектов, сервисных услуг и
-                event-площадок по модели Совместного Предприятия.
-              </p>
-              <div className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-sand-50">
-                Перейти в раздел партнерства
-                <IconArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+              <AssetPlaceholder
+                variant="field"
+                src="/photos/dji-aerial.jpg"
+                alt="Аэросъёмка территории ORLEU"
+                className="aspect-[16/10] rounded-none border-0"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/40 to-transparent" />
+              <div className="absolute inset-x-6 bottom-6 sm:inset-x-8 sm:bottom-8">
+                <span className="chip">Для партнеров и инвесторов</span>
+                <h3 className="mt-4 text-2xl font-bold sm:text-3xl">
+                  Партнёрство и бизнес-проекты
+                </h3>
+                <p className="mt-2 max-w-md text-sm text-sand-100/70">
+                  Перспективная платформа для сельского хозяйства, рыбоводства и
+                  экотуризма. Уникальные условия для масштабирования.
+                </p>
+                <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-sand-50">
+                  Стать партнером <IconArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                </div>
               </div>
             </Link>
           </div>

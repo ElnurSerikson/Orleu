@@ -46,7 +46,7 @@ export default function Home() {
           className="absolute inset-0 h-full w-full object-cover"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink-950/55 via-ink-950/40 to-ink-950/85" />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink-950/45 via-ink-950/35 to-ink-950/85" />
         <div className="absolute inset-0 bg-leaf-radial mix-blend-soft-light" />
         <div className="container-x relative grid min-h-[88vh] place-items-center py-24">
           <div className="max-w-4xl text-center">
