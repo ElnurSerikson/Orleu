@@ -26,7 +26,7 @@ export default function Footer() {
           <ul className="mt-4 space-y-2 text-sm">
             <li><Link to="/" className="text-sand-100/70 hover:text-white">Главная</Link></li>
             <li><Link to="/guests" className="text-sand-100/70 hover:text-white">Для гостей</Link></li>
-            <li><Link to="/partnership" className="text-sand-100/70 hover:text-white">Партнерство</Link></li>
+            <li><Link to="/partnership" className="text-sand-100/70 hover:text-white">Для партнеров</Link></li>
             <li><Link to="/about" className="text-sand-100/70 hover:text-white">О КФХ</Link></li>
             <li><Link to="/contacts" className="text-sand-100/70 hover:text-white">Контакты</Link></li>
           </ul>
