@@ -108,7 +108,7 @@ export default function Guests() {
           <div className="max-w-3xl text-center">
             <span className="chip">Отдых · Рыбалка · Кемпинг</span>
             <h1 className="title-xl mt-6 text-balance">
-              ORLEU: Территория вашего{' '}
+              Территория вашего{' '}
               <span className="bg-gradient-to-r from-moss-400 to-moss-500 bg-clip-text text-transparent">
                 комфортного отдыха на природе
               </span>

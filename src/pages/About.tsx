@@ -77,9 +77,9 @@ export default function About() {
           <div className="max-w-3xl text-center">
             <span className="chip">Масштаб производства КФХ ӨRLEU</span>
             <h1 className="title-xl mt-6 text-balance">
-              КФХ ӨRLEU:{' '}
+              Масштабное{' '}
               <span className="bg-gradient-to-r from-moss-400 to-moss-500 bg-clip-text text-transparent">
-                Масштабное агро-рекреационное производство
+                агро-рекреационное производство
               </span>
             </h1>
             <p className="lead mx-auto mt-6 max-w-2xl">

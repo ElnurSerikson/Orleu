@@ -52,7 +52,7 @@ export default function Home() {
           <div className="max-w-4xl text-center">
             <span className="chip backdrop-blur">КФХ ORLEU · Жамбылская область</span>
             <h1 className="title-xl mt-6 text-balance drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)]">
-              КФХ ORLEU: Территория отдыха и{' '}
+              Территория отдыха и{' '}
               <span className="bg-gradient-to-r from-moss-400 to-moss-500 bg-clip-text text-transparent">
                 деловых возможностей
               </span>

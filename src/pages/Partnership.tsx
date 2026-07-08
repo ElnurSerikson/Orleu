@@ -172,7 +172,7 @@ export default function Partnership() {
           <div className="max-w-3xl text-center">
             <span className="chip">B2B · СП · Инвестиции</span>
             <h1 className="title-xl mt-6 text-balance">
-              ӨRLEU — масштабируемая бизнес-платформа на{' '}
+              Масштабируемая бизнес-платформа на{' '}
               <span className="bg-gradient-to-r from-moss-400 to-moss-500 bg-clip-text text-transparent">
                 255 гектарах
               </span>
