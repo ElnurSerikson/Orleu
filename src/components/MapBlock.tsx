@@ -134,7 +134,7 @@ export default function MapBlock({
 
   return (
     <>
-      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-3xl border border-white/10 bg-ink-900">
+      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-white/10 bg-ink-900 sm:aspect-[16/10]">
         {/* Панорама: тянется мышью (drag-to-pan) и листается стрелками */}
         <div
           ref={scrollerRef}
@@ -157,12 +157,12 @@ export default function MapBlock({
           />
         </div>
 
-        {/* Плашка-подпись */}
-        <div className="pointer-events-none absolute left-5 top-5 rounded-2xl border border-white/10 bg-ink-950/70 px-4 py-2.5 backdrop-blur">
-          <div className="text-[11px] uppercase tracking-[0.2em] text-sand-100/60">
+        {/* Плашка-подпись (компактная на мобиле, чтобы не закрывать карту) */}
+        <div className="pointer-events-none absolute left-3 top-3 max-w-[60%] rounded-xl border border-white/10 bg-ink-950/70 px-2.5 py-1.5 backdrop-blur sm:left-5 sm:top-5 sm:max-w-none sm:rounded-2xl sm:px-4 sm:py-2.5">
+          <div className="text-[8px] uppercase tracking-[0.18em] text-sand-100/60 sm:text-[11px] sm:tracking-[0.2em]">
             Карта территории
           </div>
-          <div className="mt-0.5 text-sm text-sand-50">{caption}</div>
+          <div className="mt-0.5 text-[11px] leading-snug text-sand-50 sm:text-sm">{caption}</div>
         </div>
 
         {/* Стрелки прокрутки по центру высоты */}
