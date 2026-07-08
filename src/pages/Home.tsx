@@ -157,7 +157,7 @@ export default function Home() {
                 variant="water"
                 src="/photos/p644.jpg"
                 alt="Водоём ORLEU"
-                className="aspect-[16/10] rounded-none border-0"
+                className="aspect-[4/5] rounded-none border-0 sm:aspect-[16/10]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/40 to-transparent" />
               <div className="absolute inset-x-6 bottom-6 sm:inset-x-8 sm:bottom-8">
@@ -184,7 +184,7 @@ export default function Home() {
                 variant="field"
                 src="/photos/dji-aerial.jpg"
                 alt="Аэросъёмка территории ORLEU"
-                className="aspect-[16/10] rounded-none border-0"
+                className="aspect-[4/5] rounded-none border-0 sm:aspect-[16/10]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/40 to-transparent" />
               <div className="absolute inset-x-6 bottom-6 sm:inset-x-8 sm:bottom-8">
